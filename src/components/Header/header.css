@@ -1,0 +1,25 @@
+.navigation {
+    position: relative;
+    color: #61dafb;
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.navigation__elements {
+    display: grid;
+    grid-template-columns: 1fr repeat(3, auto) 1fr;
+    grid-column-gap: 5px;
+    justify-items: center;
+}
+.navigation__button{
+    margin: 2px;
+    padding: 2px;
+}
+.navigation__button:first-child {
+    grid-column-start: 2;
+}
+
+.signUpOrRegister {
+    margin-left: auto;
+}
