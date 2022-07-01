@@ -1,8 +1,8 @@
 const {override} = require('customize-cra');
-const {aliasDangerous, configPaths} = require('react-app-rewire-alias/lib/aliasDangerous');
+const {aliasWebpack, configPaths} = require('react-app-alias-ex');
 
 module.exports = {
     webpack: override(
-        aliasDangerous(configPaths('./tsconfig.paths.json'))
+        aliasWebpack(configPaths('./tsconfig.paths.json'))
     ),
-};
+}
