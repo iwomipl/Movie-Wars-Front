@@ -3,6 +3,7 @@ import {setMoviesList} from "../../features/moviesList/moviesList.slice";
 import {fetchForMoviesList} from "../../utils/fetchForMoviesList";
 import {useDispatch} from "react-redux";
 import {MoviesList} from "../MoviesList/MoviesList";
+import {CommonInput} from "../common/CommonInput";
 
 export const BattleView = ()=>{
     const dispatch = useDispatch();
@@ -12,7 +13,7 @@ export const BattleView = ()=>{
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        dispatch(setMoviesList(await fetchForMoviesList(Math.ceil(some/2))));
+        dispatch(setMoviesList(await fetchForMoviesList(Math.ceil(some/2), 'POST')));
         setShowForm(false)
         console.log(e.target);
 
@@ -27,27 +28,58 @@ export const BattleView = ()=>{
         <h3>How many of best movies do You want to compare?</h3>
         {showForm ?
         <form onSubmit={handleSubmit} id="battles">
-            <label>15 Battles
-                <input type="radio" value='15' name="battles" onChange={chooseMovies}/>
-            </label><br/>
-            <label>31 Battles
-            <input type="radio" value='31' name="battles" onChange={chooseMovies}/>
-            </label><br/>
-            <label>63 Battles
-                <input type="radio" value='63' name="battles" onChange={chooseMovies}/>
-            </label><br/>
-            <label>127 Battles
-                <input type="radio" value='127' name="battles" onChange={chooseMovies}/>
-            </label><br/>
-            <label>255 Battles
-                <input type="radio" value='255' name="battles" onChange={chooseMovies}/>
-            </label><br/>
-            <label>511 Battles
-                <input type="radio" value='511' name="battles" onChange={chooseMovies}/>
-            </label><br/>
+            <CommonInput
+                text="15 Battles"
+                type="radio"
+                value={15}
+                name="battles"
+                function={(e: ChangeEvent<HTMLInputElement>) => chooseMovies(e)}
+                className="battleInput"
+            /><br/>
+            <CommonInput
+                text="31 Battles"
+                type="radio"
+                value={31}
+                name="battles"
+                function={(e: ChangeEvent<HTMLInputElement>) => chooseMovies(e)}
+                className="battleInput"
+            /><br/>
+            <CommonInput
+                text="63 Battles"
+                type="radio"
+                value={63}
+                name="battles"
+                function={(e: ChangeEvent<HTMLInputElement>) => chooseMovies(e)}
+                className="battleInput"
+            /><br/>
+            <CommonInput
+                text="127 Battles"
+                type="radio"
+                value={127}
+                name="battles"
+                function={(e: ChangeEvent<HTMLInputElement>) => chooseMovies(e)}
+                className="battleInput"
+            /><br/>
+            <CommonInput
+                text="255 Battles"
+                type="radio"
+                value={255}
+                name="battles"
+                function={(e: ChangeEvent<HTMLInputElement>) => chooseMovies(e)}
+                className="battleInput"
+            /><br/>
+            <CommonInput
+                text="511 Battles"
+                type="radio"
+                value={511}
+                name="battles"
+                function={(e: ChangeEvent<HTMLInputElement>) => chooseMovies(e)}
+                className="battleInput"
+            /><br/>
             <button>Best 16</button>
         </form> :
             <MoviesList/>
         }
+        {some ? some : null}
     </>
 }
