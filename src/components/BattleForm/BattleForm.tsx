@@ -1,9 +1,8 @@
-import React, {ChangeEvent, FormEvent} from "react";
+import React, { FormEvent} from "react";
 import {CommonInput} from "../common/CommonInput";
 
 interface Props {
     submitFunction:(e: FormEvent<HTMLFormElement>)=> Promise<void>;
-    changeFunction:(e: ChangeEvent<HTMLInputElement>)=> Promise<void>;
 }
 
 export const BattleForm = (props:  Props)=>{
@@ -15,7 +14,6 @@ export const BattleForm = (props:  Props)=>{
             type="radio"
             value={15}
             name="battles"
-            function={(e: ChangeEvent<HTMLInputElement>) => props.changeFunction(e)}
             className="battleInput"
         /><br/>
         <CommonInput
@@ -23,7 +21,6 @@ export const BattleForm = (props:  Props)=>{
             type="radio"
             value={31}
             name="battles"
-            function={(e: ChangeEvent<HTMLInputElement>) => props.changeFunction(e)}
             className="battleInput"
         /><br/>
         <CommonInput
@@ -31,7 +28,6 @@ export const BattleForm = (props:  Props)=>{
             type="radio"
             value={63}
             name="battles"
-            function={(e: ChangeEvent<HTMLInputElement>) => props.changeFunction(e)}
             className="battleInput"
         /><br/>
         <CommonInput
@@ -39,7 +35,6 @@ export const BattleForm = (props:  Props)=>{
             type="radio"
             value={127}
             name="battles"
-            function={(e: ChangeEvent<HTMLInputElement>) => props.changeFunction(e)}
             className="battleInput"
         /><br/>
         <CommonInput
@@ -47,7 +42,6 @@ export const BattleForm = (props:  Props)=>{
             type="radio"
             value={255}
             name="battles"
-            function={(e: ChangeEvent<HTMLInputElement>) => props.changeFunction(e)}
             className="battleInput"
         /><br/>
         <CommonInput
@@ -55,7 +49,6 @@ export const BattleForm = (props:  Props)=>{
             type="radio"
             value={511}
             name="battles"
-            function={(e: ChangeEvent<HTMLInputElement>) => props.changeFunction(e)}
             className="battleInput"
         /><br/>
         <button>Start!</button>

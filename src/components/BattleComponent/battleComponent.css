@@ -1,0 +1,38 @@
+.battleComponent{
+    text-align: center;
+}
+.fightingMovies{
+    display: flex;
+    justify-content: center;
+}
+.movieInBattle {
+    margin: 0 2vw;
+    padding: 1vh;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #282c34;
+    border-radius: 5px;
+}
+.movieImg{
+    width: auto;
+    height: 40vh;
+    box-shadow: 0 0 2px black, 0 0 5px black, 0 0 8px black;
+}
+.left{
+
+}
+.right{
+
+}
+.chooseMovie{
+    margin: 1vw;
+    padding: 2vw;
+    border: 1px solid #282c34;
+    border-radius: 5px;
+    background-color: #61dafb;
+    font-weight: bolder;
+    color: whitesmoke;
+    text-transform: uppercase;
+    text-shadow: 0 0 3px black;
+}

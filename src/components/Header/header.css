@@ -2,10 +2,9 @@
     position: relative;
     color: #61dafb;
     text-align: center;
-    padding: 5px;
-    margin-bottom: 5px;
+    padding: 2px;
+    margin-bottom: 2px;
 }
-
 .navigation__elements {
     display: grid;
     grid-template-columns: 1fr repeat(3, auto) 1fr;
@@ -13,13 +12,13 @@
     justify-items: center;
 }
 .navigation__button{
-    margin: 2px;
-    padding: 2px;
+    margin: 0 2px;
+    padding: 0 2px;
 }
 .navigation__button:first-child {
     grid-column-start: 2;
 }
-
-.signUpOrRegister {
-    margin-left: auto;
+h1{
+    margin: 0;
+    padding: 0;
 }

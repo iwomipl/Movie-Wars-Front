@@ -1,0 +1,7 @@
+.mainBattleView{
+    text-align: center;
+}
+h3, h4, h5, h6, p {
+    margin: 5px;
+    padding: 5px;
+}
