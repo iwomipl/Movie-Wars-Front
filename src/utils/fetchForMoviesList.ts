@@ -15,7 +15,7 @@ export const fetchForMoviesList = async (number: number, method: string): Promis
     });
     const data = await results.json()
 
-    return data;
+    return await data;
     } catch(err){
         console.error(err)
         return [];

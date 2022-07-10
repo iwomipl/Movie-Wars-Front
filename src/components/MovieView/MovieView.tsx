@@ -1,7 +1,7 @@
 import React, {MouseEvent} from "react";
 import { MoviesInDataBase } from "types";
 
-interface Props extends Omit<MoviesInDataBase, 'rated' | 'polTitle' | 'position'>{
+interface Props extends Omit<MoviesInDataBase, 'rated' | 'polTitle' | 'position' | 'genre'>{
     className: string;
     value: 'left' | 'right';
     function: (e: MouseEvent<HTMLInputElement>) => void;
@@ -16,6 +16,7 @@ export const MovieView = (props: Props) => {
             name={props.origTitle}
             alt={props.className}
             className="movieImg"
+            value={props.value}
             onClick={(e) => props.function(e)}
             src={props.poster || props.imgOfMovie}
         />

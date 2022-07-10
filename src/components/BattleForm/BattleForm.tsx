@@ -1,7 +1,8 @@
 import React, {ChangeEvent, FormEvent} from "react";
 import {CommonInput} from "../common/CommonInput";
-import {setNumberOfBattles} from "../../features/moviesList/battles.slice";
+import {setNumberOfBattles} from "../../features/battle/battles.slice";
 import {useDispatch} from "react-redux";
+
 
 interface Props {
     submitFunction:(e: FormEvent<HTMLFormElement>)=> void;
@@ -14,7 +15,7 @@ export const BattleForm = (props:  Props)=>{
         dispatch(setNumberOfBattles(Number(e.target.value)));
     }
 
-    return         <form onSubmit={(e)=>props.submitFunction(e)} id="battles">
+    return <form onSubmit={(e)=>props.submitFunction(e)} id="battles">
         <CommonInput
             text="15 Battles"
             type="radio"

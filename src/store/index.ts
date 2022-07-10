@@ -1,6 +1,6 @@
 import {configureStore} from "@reduxjs/toolkit";
 import {moviesListSlice} from "../features/moviesList/moviesList.slice";
-import {battlesSlice} from "../features/moviesList/battles.slice";
+import {battlesSlice} from "../features/battle/battles.slice";
 
 
 
