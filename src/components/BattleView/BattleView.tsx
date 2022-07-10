@@ -7,7 +7,6 @@ import {BattleComponent} from "../BattleComponent/BattleComponent";
 
 import './battleView.css'
 import {RootState} from "../../store";
-import {MoviesList} from "../MoviesList/MoviesList";
 
 
 export const BattleView = () => {
@@ -38,9 +37,6 @@ export const BattleView = () => {
             <div className="mainBattleView">
                 <h4>Choose which one is better</h4>
                 <BattleComponent/>
-                {numberOfBattles}
-                <MoviesList/>
-
             </div>
         }
     </>

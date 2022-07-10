@@ -2,7 +2,7 @@ import {createSlice} from "@reduxjs/toolkit";
 import { MoviesInDataBase } from "types";
 
 
-interface MoviesListState {
+export interface MoviesListState {
     listOfMovies: Promise<MoviesInDataBase[]> | MoviesInDataBase[];
 }
 

@@ -1,8 +1,7 @@
 import React, {ChangeEvent, FormEvent} from "react";
 import {CommonInput} from "../common/CommonInput";
 import {setNumberOfBattles} from "../../features/moviesList/battles.slice";
-import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "../../store";
+import {useDispatch} from "react-redux";
 
 interface Props {
     submitFunction:(e: FormEvent<HTMLFormElement>)=> void;
@@ -10,7 +9,6 @@ interface Props {
 
 export const BattleForm = (props:  Props)=>{
     const dispatch = useDispatch();
-    const {numberOfBattles} = useSelector((store: RootState) => store.battles);
 
     const changeValue= (e: ChangeEvent<HTMLInputElement>) => {
         dispatch(setNumberOfBattles(Number(e.target.value)));
@@ -66,6 +64,5 @@ export const BattleForm = (props:  Props)=>{
             function={changeValue}
         /><br/>
         <button>Start!</button>
-        <p>{numberOfBattles}</p>
     </form>
 }

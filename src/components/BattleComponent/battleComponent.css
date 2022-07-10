@@ -1,33 +1,37 @@
-.battleComponent{
-    text-align: center;
+* {
+    box-sizing: border-box
 }
 .fightingMovies{
-    display: flex;
+    display: grid;
+    grid-template-columns: 42vw 42vw;
+    grid-column-gap: 5vw;
     justify-content: center;
 }
 .movieInBattle {
-    margin: 0 2vw;
-    padding: 1vh;
     display: block;
-    text-align: center;
+    box-shadow: 0 0 2px black, 0 0 5px black, 0 0 8px black;
     cursor: pointer;
+    padding: 1vh;
     border: 1px solid #282c34;
     border-radius: 5px;
+    width: 42vw;
+    vertical-align: top;
 }
 .movieImg{
-    width: auto;
-    height: 40vh;
-    box-shadow: 0 0 2px black, 0 0 5px black, 0 0 8px black;
+    height: 58vh;
+    float: left;
+    box-shadow: 10px 0 5px -2px black;
+    border-radius: 5px;
 }
-.left{
+.movieInBattle:hover{
+    /*display: inline-block;*/
+ /*here, well have something on hover*/
+}
 
-}
-.right{
-
-}
 .chooseMovie{
-    margin: 1vw;
-    padding: 2vw;
+    cursor: pointer;
+    margin-top: 2vh;
+    padding: 5vh;
     border: 1px solid #282c34;
     border-radius: 5px;
     background-color: #61dafb;
@@ -35,4 +39,12 @@
     color: whitesmoke;
     text-transform: uppercase;
     text-shadow: 0 0 3px black;
+    width: 89vw;
 }
+.movie-desc{
+    float: right;
+    display: block;
+    width: 22vw;
+}
+
+

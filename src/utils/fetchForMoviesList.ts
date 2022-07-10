@@ -3,7 +3,6 @@ import {config} from './config/config';
 
 export const fetchForMoviesList = async (number: number, method: string): Promise<MoviesInDataBase[] | []> =>{
     const path  = config.listOfMoviesUpdatePath;
-        console.log('start fetching')
     try {
     const results = await fetch(path, {
         method: method,
@@ -18,7 +17,7 @@ export const fetchForMoviesList = async (number: number, method: string): Promis
 
     return data;
     } catch(err){
-
+        console.error(err)
         return [];
     }
 }
