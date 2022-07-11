@@ -1,11 +1,9 @@
 import React from 'react';
-import {MoviesList} from "../MoviesList/MoviesList";
 
 
-export const MainView = ()=>{
-
+export const MainView = () => {
 
     return <>
-        <MoviesList/>
+        <h1>Here we're gona be having everything valuable to show to users</h1>
     </>
 }

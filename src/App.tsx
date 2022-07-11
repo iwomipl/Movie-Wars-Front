@@ -1,22 +1,27 @@
 import React from 'react';
 import {MainView} from "./components/MainView/MainView";
-import {Route, Routes } from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 import {Header} from "./components/Header/Header";
+import {Provider} from 'react-redux';
 
 import './App.css';
-import { BattleView } from './components/BattleView/BattleView';
+import {BattleView} from './components/BattleView/BattleView';
+import {store} from "./store";
+
 
 function App() {
 
-  return (
+    return (
         <main className="app">
-            <Header/>
-            <Routes>
-                <Route path='/main' element={<MainView/>}/>
-                <Route path='/main' element={<BattleView/>}/>
-            </Routes>
+            <Provider store={store}>
+                <Header/>
+                <Routes>
+                    <Route path='/main' element={<MainView/>}/>
+                    <Route path='/battle' element={<BattleView/>}/>
+                </Routes>
+            </Provider>
         </main>
-  );
+    );
 }
 
 export default App;
