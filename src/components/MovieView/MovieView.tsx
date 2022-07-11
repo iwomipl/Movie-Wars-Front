@@ -1,4 +1,4 @@
-import React, {MouseEvent} from "react";
+import React, {MouseEvent, useEffect} from "react";
 import { MoviesInDataBase } from "types";
 
 interface Props extends Omit<MoviesInDataBase, 'rated' | 'polTitle' | 'position' | 'genre'>{
@@ -9,7 +9,9 @@ interface Props extends Omit<MoviesInDataBase, 'rated' | 'polTitle' | 'position'
 
 
 export const MovieView = (props: Props) => {
-
+useEffect(()=>{
+    console.log((props.year).toString())
+}, [])
     return <label className={props.className} title={props.origTitle}>
         <input
             type="image"
@@ -22,7 +24,7 @@ export const MovieView = (props: Props) => {
         />
         <div className="movie-desc">
         <h4>{props.origTitle}</h4>
-        <h6>{new Date(props.year).getFullYear()}</h6>
+        <h6>{(props.year).toString()}</h6>
         <h4>Director:</h4>
         <p><strong>{props.director}</strong></p>
         <h4>Starring:</h4>
