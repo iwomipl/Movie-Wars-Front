@@ -11,5 +11,6 @@ export const Header = () => {
                 <NavLink to='/main' className="navigation__button">Main</NavLink>
                 <NavLink to='/battle' className="navigation__button">To Battle</NavLink>
             </div>
+            <hr/>
         </div>)
 }
