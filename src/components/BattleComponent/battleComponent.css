@@ -1,12 +1,14 @@
 * {
     box-sizing: border-box
 }
-.fightingMovies{
+
+.fightingMovies {
     display: grid;
     grid-template-columns: 42vw 42vw;
     grid-column-gap: 5vw;
     justify-content: center;
 }
+
 .movieInBattle {
     display: block;
     box-shadow: 0 0 2px black, 0 0 5px black, 0 0 8px black;
@@ -16,19 +18,50 @@
     border-radius: 5px;
     width: 42vw;
     vertical-align: top;
+    transition: box-shadow .25s linear;
 }
-.movieImg{
+
+.movieInBattle:hover {
+    box-shadow: 0 0 4px black, 0 0 10px black, 0 0 16px black;
+}
+
+.movieInBattle:checked::before {
+    box-shadow: 0 0 4px blue, 0 0 10px blue, 0 0 16px blue;
+}
+
+.movieInBattle:checked {
+    box-shadow: 0 0 4px blue, 0 0 10px blue, 0 0 16px blue;
+}
+
+.movieInBattle:checked::after {
+
+}
+
+.movieImg {
     height: 58vh;
     float: left;
+    max-width: 20vw;
     box-shadow: 10px 0 5px -2px black;
     border-radius: 5px;
 }
-.movieInBattle:hover{
-    /*display: inline-block;*/
- /*here, well have something on hover*/
+
+#radio-movie {
+    appearance: none;
+    animation-duration: 4s;
+    animation-name: click-movie;
+    animation-iteration-count: infinite;
 }
 
-.chooseMovie{
+#radio-movie:checked::before {
+    position: absolute;
+    top: 5vh;
+    margin-left: -16vw;
+    font-size: 30vw;
+    content: '🎞';
+    text-shadow: 0 0 1px white, 0 0 5px white, 0 0 10px white, 0 0 15px white;
+}
+
+.chooseMovie {
     cursor: pointer;
     margin-top: 2vh;
     padding: 5vh;
@@ -41,10 +74,32 @@
     text-shadow: 0 0 3px black;
     width: 89vw;
 }
-.movie-desc{
+
+.movie-desc {
     float: right;
     display: block;
     width: 20vw;
 }
 
-
+@keyframes click-movie {
+    0% {
+        opacity: 0.3;
+        color: #41b8d9;
+    }
+    25% {
+        opacity: 0.9;
+        color: #61dafb;
+    }
+    50% {
+        opacity: 0.3;
+        color: #41b8d9;
+    }
+    75% {
+        opacity: 0.9;
+        color: #61dafb;
+    }
+    100% {
+        opacity: 0.3;
+        color: #41b8d9;
+    }
+}

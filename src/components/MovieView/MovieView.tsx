@@ -5,6 +5,7 @@ interface Props extends Omit<MoviesInDataBase, 'rated' | 'polTitle' | 'position'
     className: string;
     value: 'left' | 'right';
     function: (e: MouseEvent<HTMLInputElement>) => void;
+    checked: boolean;
 }
 
 
@@ -16,12 +17,13 @@ useEffect(()=>{
         <input
             type="image"
             name={props.origTitle}
-            alt={props.className}
+            alt={props.origTitle}
             className="movieImg"
             value={props.value}
             onClick={(e) => props.function(e)}
             src={props.poster || props.imgOfMovie}
         />
+        <input type="radio" checked={props.checked} id="radio-movie"/>
         <div className="movie-desc">
         <h4>{props.origTitle}</h4>
         <h6>{(props.year).toString()}</h6>

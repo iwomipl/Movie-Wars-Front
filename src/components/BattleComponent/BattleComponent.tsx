@@ -73,6 +73,7 @@ export const BattleComponent = () => {
                     plot={leftMovie.plot}
                     director={leftMovie.director}
                     function={handleClick}
+                    checked={chosenMovie === 'left'}
                 />
                 <MovieView
                     className="movieInBattle left"
@@ -83,8 +84,9 @@ export const BattleComponent = () => {
                     poster={rightMovie.poster}
                     actors={rightMovie.actors}
                     plot={rightMovie.plot}
-                    director={leftMovie.director}
+                    director={rightMovie.director}
                     function={handleClick}
+                    checked={chosenMovie === 'right'}
                 />
                 <button className="chooseMovie">Next Battle</button>
             </form>

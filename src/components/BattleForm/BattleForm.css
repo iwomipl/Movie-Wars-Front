@@ -1,0 +1,110 @@
+#start-battles {
+    position: absolute;
+    bottom: 5vh;
+    cursor: pointer;
+    padding: 5vh;
+    border: 1px solid #282c34;
+    border-radius: 5px;
+    background-color: #61dafb;
+    font-weight: bolder;
+    color: whitesmoke;
+    text-transform: uppercase;
+    text-shadow: 0 0 3px black;
+    width: 89vw;
+}
+
+#battles {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#battles label {
+    display: block;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.option-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    position: relative;
+    top: 1vh;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 40px;
+    width: 10vw;
+    transition: all 0.15s ease-out 0s;
+    background: #31a7c8;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 0.5rem;
+    outline: none;
+    position: relative;
+    z-index: 1000;
+}
+
+.option-input:hover {
+    background: #9faab7;
+}
+
+.option-input:checked {
+    background: #61dafb;
+}
+.option-input:disabled {
+    background: gray;
+    color: white;
+}
+
+.option-input:checked::before {
+    width: 10vw;
+    height: 40px;
+    display: flex;
+    content: '🎬';
+    font-size: 20px;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+}
+
+.option-input:checked::after {
+    -webkit-animation: click-wave 0.65s;
+    -moz-animation: click-wave 0.65s;
+    animation: click-wave 0.65s;
+    background: #61dafb;
+    content: '';
+    display: block;
+    position: relative;
+    z-index: 100;
+}
+
+.option-input.radio {
+    border-radius: 0.5vh;
+    width: 10vw;
+}
+
+.option-input.radio::after {
+    border-radius: 50%;
+}
+
+@keyframes click-wave {
+    0% {
+        height: 40px;
+        width: 10vw;
+        opacity: 0.45;
+        position: relative;
+    }
+    100% {
+        height: 200px;
+        width: 200px;
+        margin-left: -20px;
+        margin-top: -80px;
+        opacity: 0;
+    }
+}

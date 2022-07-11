@@ -9,13 +9,14 @@ interface Props {
     name: string
     className: string;
     function?:(e: ChangeEvent<HTMLInputElement>)=> Promise<void> | void;
+    disabled?: boolean;
 }
 
 
 export const CommonInput = (props: Props)=>{
     const {numberOfBattles} = useSelector((store: RootState) => store.battles);
 
-    return <label>{props.text}
+    return <label>{props.text}<br/>
         <input
             type={props.type}
             value={props.value}
@@ -23,6 +24,7 @@ export const CommonInput = (props: Props)=>{
             onChange={props.function || undefined}
             className={props.className}
             checked={props.value === numberOfBattles}
+            disabled={props.disabled}
         />
     </label>
 }
