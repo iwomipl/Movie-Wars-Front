@@ -17,18 +17,21 @@ export const BattleForm = (props: Props) => {
         dispatch(setNumberOfBattles(Number(e.target.value)));
     }
 
-    return <form onSubmit={(e) => props.submitFunction(e)} id="battles">
-        {numberOfMovies.map(moviesNumber => <>
-            <CommonInput
-                text={`${moviesNumber} Best Movies`}
-                type="radio"
-                value={moviesNumber * 2 - 1}
-                name="battles"
-                className="option-input radio"
-                function={changeValue}
-                disabled={false}
-            /><br/>
-        </>)}
-        <button id="start-battles">Start!</button>
-    </form>
+    return <>
+        <h3>How many of best movies do You want to compare?</h3>
+        <form onSubmit={(e) => props.submitFunction(e)} id="battles">
+            {numberOfMovies.map(moviesNumber => <>
+                <CommonInput
+                    text={`${moviesNumber} Best Movies`}
+                    type="radio"
+                    value={moviesNumber * 2 - 1}
+                    name="battles"
+                    className="option-input radio"
+                    function={changeValue}
+                    disabled={false}
+                /><br/>
+            </>)}
+            <button id="start-battles">Start!</button>
+        </form>
+    </>
 }

@@ -17,7 +17,7 @@ function App() {
             <Provider store={store}>
                 <Header/>
                 <Routes>
-                    <Route path='/main' element={<MainView/>}/>
+                    <Route path='/' element={<MainView/>}/>
                     <Route path='/battle' element={<BattleView/>}/>
                     <Route path="*" element={<NotFound/>}/>
                 </Routes>

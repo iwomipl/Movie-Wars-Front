@@ -60,6 +60,7 @@ export const BattleComponent = () => {
 
     return <>{ !showWinner ?
         <div className="battleComponent">
+            <h4>Choose which one is better</h4>
         <div>
             <form className='fightingMovies' onSubmit={handleSubmit}>
                 <MovieView

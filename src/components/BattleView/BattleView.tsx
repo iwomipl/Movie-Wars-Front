@@ -35,13 +35,11 @@ export const BattleView = () => {
     return <>
 
         {showForm ? <div className="mainBattleView">
-                <h3>How many of best movies do You want to compare?</h3>
                 <BattleForm
                     submitFunction={handleSubmit}
                 />
             </div> :
             <div className="mainBattleView">
-                <h4>Choose which one is better</h4>
                 <BattleComponent/>
             </div>
         }

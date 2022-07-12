@@ -10,9 +10,7 @@ interface Props extends Omit<MoviesInDataBase, 'rated' | 'polTitle' | 'position'
 
 
 export const MovieView = (props: Props) => {
-useEffect(()=>{
-    console.log((props.year).toString())
-}, [])
+
     return <label className={props.className} title={props.origTitle}>
         <input
             type="image"

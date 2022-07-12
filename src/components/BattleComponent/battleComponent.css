@@ -1,14 +1,16 @@
 * {
     box-sizing: border-box
 }
-
 .fightingMovies {
     display: grid;
     grid-template-columns: 42vw 42vw;
     grid-column-gap: 5vw;
     justify-content: center;
 }
-
+.lastMovie{
+    display: grid;
+    justify-content: center;
+}
 .movieInBattle {
     display: block;
     box-shadow: 0 0 2px black, 0 0 5px black, 0 0 8px black;
@@ -80,6 +82,19 @@
     display: block;
     width: 20vw;
 }
+.good-shadow{
+    animation-duration: 2s ;
+    animation-name: best-movie;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    box-shadow: 0 0 4px #61dafb, 0 0 10px #61dafb, 0 0 16px #61dafb;
+    border: 1px solid #61dafb;
+    cursor: default;
+}
+
+.good-shadow::before{
+    box-shadow: 0 0 4px #61dafb, 0 0 10px #61dafb, 0 0 16px #61dafb;
+}
 
 @keyframes click-movie {
     0% {
@@ -101,5 +116,46 @@
     100% {
         opacity: 0.3;
         color: #41b8d9;
+    }
+}
+/*@keyframes best-movie {*/
+/*    0% {*/
+/*        box-shadow: 0 0 1px #61dafb, 0 0 2px #61dafb, 0 0 3px #61dafb, inset 0 0 12px #61dafb, inset 0 0 30px #61dafb, inset 0 0 42px #61dafb;*/
+/*    }*/
+/*    50% {*/
+/*        box-shadow: 0 0 16px -6px #61dafb, 0 0 40px -30px #61dafb, 0 0 50px -40px #61dafb, inset 0 0 1px #61dafb, inset 0 0 2px #61dafb, inset 0 0 3px #61dafb;;*/
+/*    }*/
+/*    100% {*/
+/*        box-shadow: 0 0 1px #61dafb, 0 0 2px #61dafb, 0 0 3px #61dafb, inset 0 0 12px #61dafb, inset 0 0 30px #61dafb, inset 0 0 42px #61dafb;*/
+/*    }*/
+/*}*/
+
+@keyframes best-movie {
+    0% {
+        box-shadow: 16px 0 16px #61dafb, 40px 0 40px #61dafb, 50px 0 50px #61dafb;
+    }
+    12.5%{
+        box-shadow: 12px 12px 12px #61dafb, 30px 30px 30px #61dafb, 42px 42px 42px #61dafb;
+    }
+    25%{
+        box-shadow: 0 16px 16px #61dafb, 0 40px 40px #61dafb, 0 50px 50px #61dafb;
+    }
+    37.5%{
+        box-shadow: -12px 12px 12px #61dafb, -30px 30px 30px #61dafb, -42px 42px 42px #61dafb;
+    }
+    50% {
+        box-shadow: -16px 0 16px #61dafb, -40px 0 40px #61dafb, -50px 0 50px #61dafb;
+    }
+    62.5%{
+        box-shadow: -12px -12px 12px #61dafb, -30px -30px 30px #61dafb, -42px -42px 42px #61dafb;
+    }
+    75%{
+        box-shadow: 0 -16px 16px #61dafb, 0 -40px 40px #61dafb, 0 -50px 50px #61dafb;
+    }
+    87.5%{
+        box-shadow: 12px -12px 12px #61dafb, 30px -30px 30px #61dafb, 42px -42px 42px #61dafb;
+    }
+    100% {
+        box-shadow: 16px 0 16px #61dafb, 40px 0 40px #61dafb, 50px 0 50px #61dafb;
     }
 }
