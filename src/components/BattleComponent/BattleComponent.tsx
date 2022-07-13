@@ -89,7 +89,7 @@ export const BattleComponent = () => {
                     function={handleClick}
                     checked={chosenMovie === 'right'}
                 />
-                <button className="chooseMovie">Next Battle</button>
+                <button className="chooseMovie" disabled={chosenMovie === ''}>Next Battle</button>
             </form>
         </div>
     </div>  :

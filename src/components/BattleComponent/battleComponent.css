@@ -76,7 +76,11 @@
     text-shadow: 0 0 3px black;
     width: 89vw;
 }
-
+.chooseMovie:disabled{
+    visibility: hidden;
+    background-color: gray;
+    cursor: not-allowed;
+}
 .movie-desc {
     float: right;
     display: block;
