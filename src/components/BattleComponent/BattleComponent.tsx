@@ -60,6 +60,7 @@ export const BattleComponent = () => {
 
     return <>{ !showWinner ?
         <div className="battleComponent">
+            <h4>Choose which one is better</h4>
         <div>
             <form className='fightingMovies' onSubmit={handleSubmit}>
                 <MovieView
@@ -73,6 +74,7 @@ export const BattleComponent = () => {
                     plot={leftMovie.plot}
                     director={leftMovie.director}
                     function={handleClick}
+                    checked={chosenMovie === 'left'}
                 />
                 <MovieView
                     className="movieInBattle left"
@@ -83,10 +85,11 @@ export const BattleComponent = () => {
                     poster={rightMovie.poster}
                     actors={rightMovie.actors}
                     plot={rightMovie.plot}
-                    director={leftMovie.director}
+                    director={rightMovie.director}
                     function={handleClick}
+                    checked={chosenMovie === 'right'}
                 />
-                <button className="chooseMovie">Next Battle</button>
+                <button className="chooseMovie" disabled={chosenMovie === ''}>Next Battle</button>
             </form>
         </div>
     </div>  :

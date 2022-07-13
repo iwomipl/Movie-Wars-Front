@@ -7,6 +7,7 @@ import {Provider} from 'react-redux';
 import './App.css';
 import {BattleView} from './components/BattleView/BattleView';
 import {store} from "./store";
+import { NotFound } from './components/NotFound/NotFound';
 
 
 function App() {
@@ -16,8 +17,9 @@ function App() {
             <Provider store={store}>
                 <Header/>
                 <Routes>
-                    <Route path='/main' element={<MainView/>}/>
+                    <Route path='/' element={<MainView/>}/>
                     <Route path='/battle' element={<BattleView/>}/>
+                    <Route path="*" element={<NotFound/>}/>
                 </Routes>
             </Provider>
         </main>

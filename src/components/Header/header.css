@@ -5,6 +5,10 @@
     padding: 2px;
     margin-bottom: 2px;
 }
+.navigation h1{
+    margin: 0;
+    padding: 0;
+}
 .navigation__elements {
     display: grid;
     grid-template-columns: 1fr repeat(3, auto) 1fr;
@@ -12,12 +16,18 @@
     justify-items: center;
 }
 .navigation__button{
-    padding: 0 2px;
+    background-color: #61dafb;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    text-decoration: none;
+    font-weight: bolder;
+    border-radius: 0.5vh;
+    padding: 1vh 1vw;
+    width: auto;
+    height: 5vh;
+    margin: 0 0.1vw;
 }
 .navigation__button:first-child {
     grid-column-start: 2;
 }
-h1{
-    margin: 0;
-    padding: 0;
-}
+
