@@ -4,6 +4,9 @@ Here you can wind app on which you can see what is your favourite movie. After i
 # Tech stack
 Frontend of the app uses React with Redux. It communicates with backend fetch function to get needed data.
 
+#----------------WORKING DEMO ------------- Until end of August ----------------
+##[MOVIE WARS](https://iwomi.networkmanager.pl/)
+
 # Installing app
 * You need to get all files and from github
 * In console run command **"npm i"**
