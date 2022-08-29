@@ -20,7 +20,7 @@ export const BattleForm = (props: Props) => {
     return <>
         <h3>How many of best movies do You want to compare?</h3>
         <form onSubmit={(e) => props.submitFunction(e)} id="battles">
-            {numberOfMovies.map(moviesNumber => <>
+            {numberOfMovies.map(moviesNumber => < div key={moviesNumber.toString()}>
                 <CommonInput
                     text={`${moviesNumber} Best Movies`}
                     type="radio"
@@ -30,7 +30,7 @@ export const BattleForm = (props: Props) => {
                     function={changeValue}
                     disabled={false}
                 /><br/>
-            </>)}
+            </div>)}
             <button id="start-battles">Start!</button>
         </form>
     </>
