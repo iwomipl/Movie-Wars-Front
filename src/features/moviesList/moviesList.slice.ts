@@ -19,7 +19,6 @@ export const moviesListSlice = createSlice({
     initialState,
     reducers: {
         setMoviesList: (state, action: SetMoviesList)=>{
-
             state.listOfMovies = action.payload;
         },
     },

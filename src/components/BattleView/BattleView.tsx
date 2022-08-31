@@ -22,6 +22,7 @@ export const BattleView = () => {
         setShowForm(true);
 
     }, []);
+
     useEffect(() => {
         (async () => await dispatch(await setCurrentListOfMovies(listOfMovies as MoviesInDataBase[])))();
     }, [listOfMovies]);
