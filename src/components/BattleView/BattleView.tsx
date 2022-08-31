@@ -1,6 +1,6 @@
 import React, {FormEvent, useEffect, useState} from 'react';
-import {MoviesListState, setMoviesList} from "../../features/moviesList/moviesList.slice";
-import {fetchForMoviesList} from "../../utils/fetchForMoviesList";
+import {MoviesListState, setGenresStats, setMoviesList} from "../../features/moviesList/moviesList.slice";
+import {fetchToAPI, fetchToAPIGET} from "../../utils/fetchToAPI";
 import {useDispatch, useSelector} from "react-redux";
 import {BattleForm} from '../BattleForm/BattleForm';
 import {BattleComponent} from "../BattleComponent/BattleComponent";
@@ -20,7 +20,10 @@ export const BattleView = () => {
 
     useEffect(() => {
         setShowForm(true);
-
+        (async () => await dispatch(await setGenresStats(await fetchToAPIGET('GET') as {
+            name: string;
+            number: number;
+        }[])))();
     }, []);
 
     useEffect(() => {
@@ -29,7 +32,7 @@ export const BattleView = () => {
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement | HTMLInputElement>) => {
         e.preventDefault();
-        await (async () => await dispatch(await setMoviesList(await fetchForMoviesList(Math.ceil(numberOfBattles / 2), 'POST'))))();
+        await (async () => await dispatch(await setMoviesList(await fetchToAPI('POST', Math.ceil(numberOfBattles / 2)) as MoviesInDataBase[])))();
         setShowForm(false);
     }
 
