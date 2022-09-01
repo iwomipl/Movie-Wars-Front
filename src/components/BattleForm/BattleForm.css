@@ -60,6 +60,7 @@
 .option-input:disabled {
     background: gray;
     color: white;
+    pointer-events: none;
 }
 
 .option-input:checked::before {

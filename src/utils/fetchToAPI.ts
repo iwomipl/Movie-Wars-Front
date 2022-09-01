@@ -1,4 +1,4 @@
-import { MoviesInDataBase } from 'types';
+import { MoviesInDataBase, GenresStatObject } from 'types';
 import {config} from './config/config';
 
 export const fetchToAPI = async (method: string, number: number): Promise<MoviesInDataBase[] | [] | {
@@ -25,10 +25,7 @@ export const fetchToAPI = async (method: string, number: number): Promise<Movies
     }
 }
 //@TODO get those functions work as one later
-export const fetchToAPIGET = async (method: string): Promise<{
-    name: string;
-    number: number;
-}[]> =>{
+export const fetchToAPIGET = async (method: string): Promise<GenresStatObject> =>{
     const path  = config.listOfMoviesUpdatePath;
     try {
         const results = await fetch(`${path}/get-list`, {
@@ -42,7 +39,7 @@ export const fetchToAPIGET = async (method: string): Promise<{
         return await data;
     } catch(err){
         console.error(err)
-        return [];
+        return {};
     }
 }
 

@@ -1,34 +1,43 @@
-import React, {useEffect} from "react";
+import React, {ChangeEvent, useEffect} from "react";
 
 import './Genres.css'
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../store";
 import {CommonInput} from "../common/CommonInput";
+import {setAdditionalVariable, setNumberOfBattles} from "../../features/battle/battles.slice";
+import { GenresStatObject } from "types";
+
 
 export const Genres = ()=>{
+  const dispatch = useDispatch();
   const MoviesListState = useSelector((store: RootState) => store.moviesList);
+  const {numberOfBattles} = useSelector((store: RootState) => store.battles);
 
   useEffect(()=>{
 
   },[])
 
   //@TODO create function to get from API number of movies with genres and # of movies
-  //@TODO create function (disable={genre.length > 8}) to disable buttons with more battles than the number of movies in genre
-  //@TODO use common input and map function to show buttons with genre options
 
+  const changeAdditionalVariableValue = (e: ChangeEvent<HTMLInputElement>) => {
+    const chosenNumber = (MoviesListState.genresStats as GenresStatObject)[e.target.value];
+   if(chosenNumber >= Math.ceil(numberOfBattles/2)) {
+     dispatch(setAdditionalVariable({name: e.target.value, number: chosenNumber}))
+   } else {
+     dispatch(setAdditionalVariable({name: e.target.value, number: chosenNumber}));
+     dispatch(setNumberOfBattles(8*2-1));
+   }
+  };
 
   return<div className="battles">
-    {(MoviesListState.genresStats as []).map((genreData: {
-      name: string;
-      number: number;
-    }) => < div key={genreData.name+'number'}>
+    {Object.entries(MoviesListState.genresStats).map((genreData) => < div key={genreData[0]}>
       <CommonInput
-        text={`${genreData.name}`}
+        text={`${genreData[0]}`}
         type="radio"
-        value={genreData.number}
-        name="battles"
+        value={genreData[0]}
+        name="genres"
         className="option-input radio"
-        // function={changeValue}
+        function={changeAdditionalVariableValue}
         disabled={false}
       /><br/>
     </div>)}

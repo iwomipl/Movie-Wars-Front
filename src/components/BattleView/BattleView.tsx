@@ -8,7 +8,7 @@ import {BattleComponent} from "../BattleComponent/BattleComponent";
 import './battleView.css'
 import {RootState} from "../../store";
 import {setCurrentListOfMovies} from "../../features/battle/battles.slice";
-import { MoviesInDataBase } from 'types';
+import { MoviesInDataBase, GenresStatObject } from 'types';
 
 
 export const BattleView = () => {
@@ -20,10 +20,7 @@ export const BattleView = () => {
 
     useEffect(() => {
         setShowForm(true);
-        (async () => await dispatch(await setGenresStats(await fetchToAPIGET('GET') as {
-            name: string;
-            number: number;
-        }[])))();
+        (async () => await dispatch(await setGenresStats(await fetchToAPIGET('GET') as GenresStatObject)))();
     }, []);
 
     useEffect(() => {
