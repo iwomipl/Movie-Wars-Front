@@ -14,7 +14,6 @@ interface Props {
 export const BattleForm = (props: Props) => {
     const dispatch = useDispatch();
     const {additionalVariable} = useSelector((store: RootState) => store.battles);
-    const {numberOfBattles} = useSelector((store: RootState) => store.battles);
     const [numberOfMovies, setNumberOfMovies] = useState([8, 16, 32, 64, 128, 256]);
 
     useEffect(()=>{
@@ -48,6 +47,5 @@ export const BattleForm = (props: Props) => {
             </div>
             <button id="start-battles">Start!</button>
         </form>
-        <p>{additionalVariable.number} {numberOfBattles}</p>
     </>
 }
