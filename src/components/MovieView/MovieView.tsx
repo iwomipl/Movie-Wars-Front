@@ -1,4 +1,4 @@
-import React, {MouseEvent, useEffect} from "react";
+import React, {MouseEvent} from "react";
 import { MoviesInDataBase } from "types";
 
 interface Props extends Omit<MoviesInDataBase, 'rated' | 'polTitle' | 'position' | 'genre'>{
@@ -19,7 +19,7 @@ export const MovieView = (props: Props) => {
             className="movieImg"
             value={props.value}
             onClick={(e) => props.function(e)}
-            src={props.poster || props.imgOfMovie}
+            src={!props.poster || props.poster === 'N/A' ? props.imgOfMovie : props.poster}
         />
         <input type="radio" checked={props.checked} id="radio-movie"/>
         <div className="movie-desc">
