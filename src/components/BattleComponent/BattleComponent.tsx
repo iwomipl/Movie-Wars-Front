@@ -22,12 +22,17 @@ export const BattleComponent = () => {
     const [rightMovie, setRightMovie] = useState((currentListOfMovies as MoviesInDataBase[])[1] as MoviesInDataBase);
     const [chosenMovie, setChosenMovie] = useState('');
     const [showWinner, setShowWinner] = useState(false);
+    const [movieInBattle, setMovieInBattle] = useState('movieInBattle ')
 
 
     useEffect(() => {
         dispatch(resetFutureListOfMovies());
 
     }, [listOfMovies]);
+
+    useEffect(()=>{
+        setMovieInBattle('movieInBattle ')
+    }, [chosenMovie])
 
     useEffect(() => {
         if (currentListOfMovies.length === 0 && futureListOfMovies.length > 1) {
@@ -45,7 +50,8 @@ export const BattleComponent = () => {
         setChosenMovie(e.currentTarget.value);
     }
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+        e.preventDefault()
+        setMovieInBattle('')
         if (chosenMovie === '') {
             return;
         }
@@ -64,7 +70,7 @@ export const BattleComponent = () => {
         <div>
             <form className='fightingMovies' onSubmit={handleSubmit}>
                 <MovieView
-                    className="movieInBattle left"
+                    className={movieInBattle+'left'}
                     value="left"
                     origTitle={leftMovie.origTitle}
                     year={leftMovie.year}
@@ -77,7 +83,7 @@ export const BattleComponent = () => {
                     checked={chosenMovie === 'left'}
                 />
                 <MovieView
-                    className="movieInBattle left"
+                    className={movieInBattle+'left'}
                     value="right"
                     origTitle={rightMovie.origTitle}
                     year={rightMovie.year}
