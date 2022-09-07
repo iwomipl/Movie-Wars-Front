@@ -1,5 +1,4 @@
 #start-battles {
-    position: absolute;
     bottom: 5vh;
     cursor: pointer;
     padding: 5vh;
@@ -12,14 +11,23 @@
     text-shadow: 0 0 3px black;
     width: 89vw;
 }
+.forms {
+    position: relative;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    width: 89vw;
+}
 
-#battles {
+.battles {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
-#battles label {
+.battles label {
     display: block;
     font-weight: bolder;
     cursor: pointer;
@@ -46,7 +54,6 @@
     display: inline-block;
     margin-right: 0.5rem;
     outline: none;
-    position: relative;
     z-index: 1000;
 }
 
@@ -60,6 +67,7 @@
 .option-input:disabled {
     background: gray;
     color: white;
+    pointer-events: none;
 }
 
 .option-input:checked::before {

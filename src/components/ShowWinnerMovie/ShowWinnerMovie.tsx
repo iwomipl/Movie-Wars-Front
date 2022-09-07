@@ -13,7 +13,7 @@ export const ShowWinnerMovie = (props: Props) => {
             <img src={props.poster} alt={props.origTitle} className="movieImg"/>
             <div className="movie-desc">
                 <h4>{props.origTitle}</h4>
-                <h6>{new Date(props.year).getFullYear()}</h6>
+                <h6>{(props.year).toString()}</h6>
                 <h4>Director:</h4>
                 <p><strong>{props.director}</strong></p>
                 <h4>Starring:</h4>

@@ -7,6 +7,10 @@ export interface BattlesState {
     currentListOfMovies: MoviesInDataBase[];
     futureListOfMovies: MoviesInDataBase[];
     currentBattle: MoviesInDataBase[];
+    additionalVariable: {
+        name: string;
+        number?: number;
+    };
 }
 
 const initialState: BattlesState = {
@@ -14,6 +18,10 @@ const initialState: BattlesState = {
     currentListOfMovies: [],
     futureListOfMovies: [],
     currentBattle: [],
+    additionalVariable: {
+        name: '',
+        number: 0,
+    },
 };
 
 interface SetNumberOfBattles {
@@ -27,6 +35,12 @@ interface AddMovieToFutureListOfMovies {
 }
 interface SetCurrentBattle {
     payload: MoviesInDataBase[];
+}
+interface SetAdditionalVariable {
+    payload: {
+        name: string;
+        number: number;
+    };
 }
 
 export const battlesSlice = createSlice({
@@ -48,7 +62,13 @@ export const battlesSlice = createSlice({
         addMovieToFutureListOfMovies: (state, action: AddMovieToFutureListOfMovies)=>{
             state.futureListOfMovies = [...state.futureListOfMovies, action.payload];
         },
+        setAdditionalVariable: (state, action: SetAdditionalVariable)=>{
+            state.additionalVariable = action.payload;
+        },
+        resetAdditionalVariable: (state, action: SetAdditionalVariable)=>{
+            state.additionalVariable = {name: '', number: 0,};
+        },
     },
 });
 
-export const {setNumberOfBattles, setCurrentBattle, setCurrentListOfMovies, resetFutureListOfMovies, addMovieToFutureListOfMovies} = battlesSlice.actions;
+export const {setNumberOfBattles, setCurrentBattle, setCurrentListOfMovies, resetFutureListOfMovies, addMovieToFutureListOfMovies, setAdditionalVariable, resetAdditionalVariable} = battlesSlice.actions;

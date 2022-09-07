@@ -1,0 +1,9 @@
+#bottom-em {
+    display: block;
+    margin: 1vh;
+}
+
+#mainButton{
+    padding: 1vh;
+    vertical-align: middle;
+}

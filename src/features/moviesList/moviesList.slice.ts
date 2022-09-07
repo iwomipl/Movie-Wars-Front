@@ -1,17 +1,22 @@
 import {createSlice} from "@reduxjs/toolkit";
-import { MoviesInDataBase } from "types";
-
+import { MoviesInDataBase, GenresStatObject } from "types";
 
 export interface MoviesListState {
     listOfMovies: Promise<MoviesInDataBase[]> | MoviesInDataBase[];
+    genresStats: Promise<GenresStatObject> | GenresStatObject;
 }
 
 const initialState: MoviesListState = {
     listOfMovies:  [],//[(async()=>await fetchForMoviesList(50))()][0],
+    genresStats: {},
 };
 
 interface SetMoviesList {
     payload: MoviesInDataBase[];
+}
+
+interface SetGenresStats {
+    payload: GenresStatObject;
 }
 
 export const moviesListSlice = createSlice({
@@ -19,10 +24,12 @@ export const moviesListSlice = createSlice({
     initialState,
     reducers: {
         setMoviesList: (state, action: SetMoviesList)=>{
-
             state.listOfMovies = action.payload;
         },
+        setGenresStats: (state, action: SetGenresStats)=>{
+            state.genresStats = action.payload;
+        }
     },
 });
 
-export const {setMoviesList} = moviesListSlice.actions;
+export const {setMoviesList, setGenresStats} = moviesListSlice.actions;

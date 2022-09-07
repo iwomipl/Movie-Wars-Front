@@ -13,6 +13,7 @@
 }
 .movieInBattle {
     display: block;
+    animation: movie-div-animation .65s cubic-bezier(1, .1, .5, 0);
     box-shadow: 0 0 2px black, 0 0 5px black, 0 0 8px black;
     cursor: pointer;
     padding: 1vh;
@@ -75,6 +76,7 @@
     text-transform: uppercase;
     text-shadow: 0 0 3px black;
     width: 89vw;
+    z-index: 1;
 }
 .chooseMovie:disabled{
     visibility: hidden;
@@ -122,17 +124,17 @@
         color: #41b8d9;
     }
 }
-/*@keyframes best-movie {*/
-/*    0% {*/
-/*        box-shadow: 0 0 1px #61dafb, 0 0 2px #61dafb, 0 0 3px #61dafb, inset 0 0 12px #61dafb, inset 0 0 30px #61dafb, inset 0 0 42px #61dafb;*/
-/*    }*/
-/*    50% {*/
-/*        box-shadow: 0 0 16px -6px #61dafb, 0 0 40px -30px #61dafb, 0 0 50px -40px #61dafb, inset 0 0 1px #61dafb, inset 0 0 2px #61dafb, inset 0 0 3px #61dafb;;*/
-/*    }*/
-/*    100% {*/
-/*        box-shadow: 0 0 1px #61dafb, 0 0 2px #61dafb, 0 0 3px #61dafb, inset 0 0 12px #61dafb, inset 0 0 30px #61dafb, inset 0 0 42px #61dafb;*/
-/*    }*/
-/*}*/
+
+@keyframes movie-div-animation {
+    from {
+    transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 
 @keyframes best-movie {
     0% {
