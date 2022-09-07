@@ -1,5 +1,4 @@
 #start-battles {
-    /*position: absolute;*/
     bottom: 5vh;
     cursor: pointer;
     padding: 5vh;
@@ -10,6 +9,14 @@
     color: whitesmoke;
     text-transform: uppercase;
     text-shadow: 0 0 3px black;
+    width: 89vw;
+}
+.forms {
+    position: relative;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
     width: 89vw;
 }
 

@@ -1,19 +1,28 @@
 .navigation {
     position: relative;
     color: #61dafb;
+    display: flex;
+    justify-content: center;
     text-align: center;
     padding: 2px;
-    margin-bottom: 2px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 .navigation h1{
     margin: 0;
     padding: 0;
+    height: 5vh;
 }
 .navigation__elements {
-    display: grid;
-    grid-template-columns: 1fr repeat(3, auto) 1fr;
-    grid-column-gap: 5px;
-    justify-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 89vw;
+    vertical-align: bottom;
+}
+.navigation__elements div{
+    margin: 0;
+    padding: 0;
+    font-size: 1.5em;
 }
 .navigation__button{
     background-color: #61dafb;
@@ -27,7 +36,3 @@
     height: 5vh;
     margin: 0 0.1vw;
 }
-.navigation__button:first-child {
-    grid-column-start: 2;
-}
-

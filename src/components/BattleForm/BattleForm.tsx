@@ -26,13 +26,13 @@ export const BattleForm = (props: Props) => {
 
     return <>
         <h3>How many of best movies do You want to compare?</h3>
-        <form onSubmit={(e) => props.submitFunction(e)} >
+        <form onSubmit={(e) => props.submitFunction(e)} className="battles">
             <label>You Can choose Genres</label>
-            <div>
+            <div className="forms">
             <Genres/>
             </div>
             <label>Choose number of movies to battle</label>
-            <div className="battles">
+            <div className="battles forms">
             {numberOfMovies.map(moviesNumber => < div key={moviesNumber.toString()}>
                 <CommonInput
                     text={`${moviesNumber} Best Movies`}

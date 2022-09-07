@@ -20,8 +20,8 @@ export const BattleView = () => {
 
 
     useEffect(() => {
-        setShowForm(true);
         (async () => await dispatch(await setGenresStats(await fetchToAPI('GET') as GenresStatObject)))();
+        setShowForm(true);
     }, []);
 
     useEffect(() => {
