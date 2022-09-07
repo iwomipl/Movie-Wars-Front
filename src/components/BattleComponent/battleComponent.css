@@ -13,7 +13,7 @@
 }
 .movieInBattle {
     display: block;
-    animation: movie-div-animation .45s;
+    animation: movie-div-animation .65s cubic-bezier(1, .1, .5, 0);
     box-shadow: 0 0 2px black, 0 0 5px black, 0 0 8px black;
     cursor: pointer;
     padding: 1vh;
@@ -127,9 +127,11 @@
 @keyframes movie-div-animation {
     from {
     transform: scale(0);
+        opacity: 0;
     }
     to {
         transform: scale(1);
+        opacity: 1;
     }
 }
 
