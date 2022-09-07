@@ -1,6 +1,6 @@
 import React, {FormEvent, useEffect, useState} from 'react';
 import {MoviesListState, setGenresStats, setMoviesList} from "../../features/moviesList/moviesList.slice";
-import {fetchToAPI, fetchToAPIGET} from "../../utils/fetchToAPI";
+import {fetchToAPI} from "../../utils/fetchToAPI";
 import {useDispatch, useSelector} from "react-redux";
 import {BattleForm} from '../BattleForm/BattleForm';
 import {BattleComponent} from "../BattleComponent/BattleComponent";
@@ -21,7 +21,7 @@ export const BattleView = () => {
 
     useEffect(() => {
         setShowForm(true);
-        (async () => await dispatch(await setGenresStats(await fetchToAPIGET('GET') as GenresStatObject)))();
+        (async () => await dispatch(await setGenresStats(await fetchToAPI('GET') as GenresStatObject)))();
     }, []);
 
     useEffect(() => {
