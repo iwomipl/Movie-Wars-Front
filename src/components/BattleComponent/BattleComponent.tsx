@@ -16,51 +16,67 @@ import { ShowWinnerMovie } from "../ShowWinnerMovie/ShowWinnerMovie";
 
 export const BattleComponent = () => {
     const dispatch = useDispatch();
+    /**---- base list of movies ----*/
     const {listOfMovies}: MoviesListState = useSelector((store: RootState) => store.moviesList);
+    /**---- arrays of movies that are currently chosen from, and movies that will be chosen on next stage  ----*/
     const {currentListOfMovies, futureListOfMovies}: BattlesState = useSelector((store: RootState) => store.battles);
     const [leftMovie, setLeftMovie] = useState((currentListOfMovies as MoviesInDataBase[])[0] as MoviesInDataBase);
     const [rightMovie, setRightMovie] = useState((currentListOfMovies as MoviesInDataBase[])[1] as MoviesInDataBase);
+    /**---- chosenMovie to change class ----*/
     const [chosenMovie, setChosenMovie] = useState('');
+    /**---- when there will be no more movies to choose from ----*/
     const [showWinner, setShowWinner] = useState(false);
+    /**---- change class to show animation ----*/
     const [movieInBattle, setMovieInBattle] = useState('movieInBattle ')
 
 
     useEffect(() => {
         dispatch(resetFutureListOfMovies());
-
     }, [listOfMovies]);
 
-    useEffect(()=>{
-        setMovieInBattle('movieInBattle ')
-    }, [chosenMovie])
-
     useEffect(() => {
+        /**---- if current array of movies ends, and there are still movies in futureMovies array ----*/
         if (currentListOfMovies.length === 0 && futureListOfMovies.length > 1) {
+            /**---- set current list of movies as list of future list of movies ----*/
             dispatch(setCurrentListOfMovies(futureListOfMovies));
+            /**---- then delete everything from list of movies, to start collecting winners from pairs ----*/
             dispatch(resetFutureListOfMovies());
         } else if (currentListOfMovies.length === 0 && futureListOfMovies.length === 1) {
+            /**---- if there are no list of movies to chose from, ane only one future movie is remaining, show the winner ----*/
             setShowWinner(true);
         }
+
+        /**---- setting movies from currently used array of movies  ----*/
             setLeftMovie((currentListOfMovies as MoviesInDataBase[])[0] as MoviesInDataBase);
             setRightMovie((currentListOfMovies as MoviesInDataBase[])[1] as MoviesInDataBase);
+
+            /**---- setting class to get animation on div load ----*/
+            setMovieInBattle('movieInBattle ');
     }, [currentListOfMovies])
 
     const handleClick = (e: MouseEvent<HTMLInputElement>) => {
         e.preventDefault();
+        /**---- set the winner movie ----*/
         setChosenMovie(e.currentTarget.value);
     }
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        setMovieInBattle('')
+        e.preventDefault();
+        /**---- delete movieInBattle class to show animation on movie load ----*/
+        setMovieInBattle('');
+
+        /**---- simple validation ----*/
         if (chosenMovie === '') {
             return;
         }
-        if (chosenMovie === 'left') {
-            dispatch(addMovieToFutureListOfMovies(leftMovie))
-        } else {
-            dispatch(addMovieToFutureListOfMovies(rightMovie))
-        }
+        /**---- add winner movie to the future list ----*/
+        chosenMovie === 'left' ?
+          dispatch(addMovieToFutureListOfMovies(leftMovie)) :
+          dispatch(addMovieToFutureListOfMovies(rightMovie));
+
+        /**---- get rid of last two movies from current list ----*/
         dispatch(setCurrentListOfMovies(currentListOfMovies.slice(2) as MoviesInDataBase[]))
+
+        /**---- setting class to '' to get animation on div load ----*/
         setChosenMovie('');
     }
 
