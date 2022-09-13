@@ -26,9 +26,9 @@ export const BattleForm = (props: Props) => {
 
     return <>
         <h3>How many of best movies do You want to compare?</h3>
-        <form onSubmit={(e) => props.submitFunction(e)} className="battles">
+        <form onSubmit={(e) => props.submitFunction(e)} className="battle-form">
             <label>You Can choose Genres</label>
-            <div className="forms">
+            <div className="battles forms">
             <Genres/>
             </div>
             <label>Choose number of movies to battle</label>
