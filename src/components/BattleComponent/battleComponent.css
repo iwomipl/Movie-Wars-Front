@@ -46,6 +46,7 @@
     max-width: 20vw;
     box-shadow: 10px 0 5px -2px black;
     border-radius: 5px;
+    animation: movie-img-animation 5s infinite linear;
 }
 
 #radio-movie {
@@ -163,5 +164,26 @@
     }
     100% {
         box-shadow: 16px 0 16px #61dafb, 40px 0 40px #61dafb, 50px 0 50px #61dafb;
+    }
+}
+
+@keyframes movie-img-animation {
+    0% {
+        transform: matrix(1, 0, 0, 1, 0, 0) scale(1);
+    }
+    7% {
+        transform: matrix(0.5, 0, 0, 1, 0, 0) scale(1.021);
+    }
+    26% {
+        transform: matrix(-1, 0, 0, 1, 0, 0) scale(1.021);
+    }
+    39% {
+        transform: matrix(0.5, 0, 0, 1, 0, 0) scale(1.021);
+    }
+    46% {
+        transform: matrix(1, 0, 0, 1, 0, 0) scale(1);
+    }
+    100%{
+        transform: matrix(1, 0, 0, 1, 0, 0);
     }
 }
