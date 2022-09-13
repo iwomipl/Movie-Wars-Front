@@ -8,7 +8,7 @@ export interface MoviesListState {
 }
 
 const initialState: MoviesListState = {
-    listOfMovies:  [],//[(async()=>await fetchForMoviesList(50))()][0],
+    listOfMovies:  [],
     genresStats: {},
     numberOfBattlesPossible: [8, 16, 32, 64, 128, 256],
 };

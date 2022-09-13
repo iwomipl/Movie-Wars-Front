@@ -6,7 +6,7 @@ import {RootState} from "../../store";
 import {BattleForm} from '../BattleForm/BattleForm';
 import {BattleComponent} from "../BattleComponent/BattleComponent";
 import {setCurrentListOfMovies} from "../../features/battle/battles.slice";
-import { MoviesInDataBase, GenresStatObject } from 'types';
+import {MoviesInDataBase, GenresStatObject} from 'types';
 
 import './battleView.css'
 

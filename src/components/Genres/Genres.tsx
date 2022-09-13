@@ -13,6 +13,7 @@ export const Genres = ()=>{
 
   const changeAdditionalVariableValue = (e: ChangeEvent<HTMLInputElement>) => {
     const chosenNumber = (MoviesListState.genresStats as GenresStatObject)[e.target.value];
+
    if(chosenNumber >= Math.ceil(numberOfBattles/2)) {
      dispatch(setAdditionalVariable({name: e.target.value, number: chosenNumber}))
    } else {

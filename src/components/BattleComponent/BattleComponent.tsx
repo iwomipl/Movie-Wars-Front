@@ -1,10 +1,8 @@
 import React, {FormEvent, MouseEvent, useEffect, useState} from "react";
-import {MovieView} from "../MovieView/MovieView";
-
-import './battleComponent.css'
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../store";
-import {MoviesInDataBase} from "types";
+import {MovieView} from "../MovieView/MovieView";
+import { ShowWinnerMovie } from "../ShowWinnerMovie/ShowWinnerMovie";
 import {MoviesListState} from "../../features/moviesList/moviesList.slice";
 import {
     addMovieToFutureListOfMovies,
@@ -12,14 +10,17 @@ import {
     resetFutureListOfMovies,
     setCurrentListOfMovies
 } from "../../features/battle/battles.slice";
-import { ShowWinnerMovie } from "../ShowWinnerMovie/ShowWinnerMovie";
+import {MoviesInDataBase} from "types";
+
+import './battleComponent.css';
 
 export const BattleComponent = () => {
     const dispatch = useDispatch();
     /**---- base list of movies ----*/
     const {listOfMovies}: MoviesListState = useSelector((store: RootState) => store.moviesList);
     /**---- arrays of movies that are currently chosen from, and movies that will be chosen on next stage  ----*/
-    const {currentListOfMovies, futureListOfMovies}: BattlesState = useSelector((store: RootState) => store.battles);
+    const {currentListOfMovies, futureListOfMovies, numberOfBattles}: BattlesState = useSelector((store: RootState) => store.battles);
+    const {additionalVariable} = useSelector((store: RootState) => store.battles);
     const [leftMovie, setLeftMovie] = useState((currentListOfMovies as MoviesInDataBase[])[0] as MoviesInDataBase);
     const [rightMovie, setRightMovie] = useState((currentListOfMovies as MoviesInDataBase[])[1] as MoviesInDataBase);
     /**---- chosenMovie to change class ----*/
@@ -82,7 +83,7 @@ export const BattleComponent = () => {
 
     return <>{ !showWinner ?
         <div className="battleComponent">
-            <h4>Choose which one is better</h4>
+            <h4>You have chosen to battle {Math.ceil(numberOfBattles/2)} movies out of {additionalVariable.name} category. Choose which movie is better</h4>
         <div>
             <form className='fightingMovies' onSubmit={handleSubmit}>
                 <MovieView
