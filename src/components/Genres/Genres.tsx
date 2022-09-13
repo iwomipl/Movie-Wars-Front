@@ -1,23 +1,15 @@
-import React, {ChangeEvent, useEffect} from "react";
-
-import './Genres.css'
+import React, {ChangeEvent} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../store";
-import {CommonInput} from "../common/CommonInput";
 import {setAdditionalVariable, setNumberOfBattles} from "../../features/battle/battles.slice";
-import { GenresStatObject } from "types";
+import {GenresStatObject} from "types";
+import {CommonInput} from "../common/CommonInput";
 
 
 export const Genres = ()=>{
   const dispatch = useDispatch();
   const MoviesListState = useSelector((store: RootState) => store.moviesList);
   const {numberOfBattles} = useSelector((store: RootState) => store.battles);
-
-  useEffect(()=>{
-
-  },[])
-
-  //@TODO create function to get from API number of movies with genres and # of movies
 
   const changeAdditionalVariableValue = (e: ChangeEvent<HTMLInputElement>) => {
     const chosenNumber = (MoviesListState.genresStats as GenresStatObject)[e.target.value];
@@ -29,7 +21,7 @@ export const Genres = ()=>{
    }
   };
 
-  return<div className="battles">
+  return<div className="battles forms">
     {Object.entries(MoviesListState.genresStats).map((genreData) => < div key={genreData[0]}>
       <CommonInput
         text={`${genreData[0]}`}

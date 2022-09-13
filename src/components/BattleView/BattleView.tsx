@@ -2,13 +2,13 @@ import React, {FormEvent, useEffect, useState} from 'react';
 import {MoviesListState, setGenresStats, setMoviesList} from "../../features/moviesList/moviesList.slice";
 import {fetchToAPI} from "../../utils/fetchToAPI";
 import {useDispatch, useSelector} from "react-redux";
+import {RootState} from "../../store";
 import {BattleForm} from '../BattleForm/BattleForm';
 import {BattleComponent} from "../BattleComponent/BattleComponent";
-
-import './battleView.css'
-import {RootState} from "../../store";
 import {setCurrentListOfMovies} from "../../features/battle/battles.slice";
 import { MoviesInDataBase, GenresStatObject } from 'types';
+
+import './battleView.css'
 
 
 export const BattleView = () => {
