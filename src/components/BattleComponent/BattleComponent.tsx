@@ -8,7 +8,7 @@ import {
     addMovieToFutureListOfMovies,
     BattlesState,
     resetFutureListOfMovies,
-    setCurrentListOfMovies
+    setCurrentListOfMovies, setRoundNumber
 } from "../../features/battle/battles.slice";
 import {MoviesInDataBase} from "types";
 import {MessageComponent} from "../MessageComponent/MessageComponent";
@@ -20,7 +20,7 @@ export const BattleComponent = () => {
     /**---- base list of movies ----*/
     const {listOfMovies}: MoviesListState = useSelector((store: RootState) => store.moviesList);
     /**---- arrays of movies that are currently chosen from, and movies that will be chosen on next stage  ----*/
-    const {currentListOfMovies, futureListOfMovies, numberOfBattles}: BattlesState = useSelector((store: RootState) => store.battles);
+    const {currentListOfMovies, futureListOfMovies, numberOfBattles, roundNumber}: BattlesState = useSelector((store: RootState) => store.battles);
     const {additionalVariable} = useSelector((store: RootState) => store.battles);
     const [leftMovie, setLeftMovie] = useState((currentListOfMovies as MoviesInDataBase[])[0] as MoviesInDataBase);
     const [rightMovie, setRightMovie] = useState((currentListOfMovies as MoviesInDataBase[])[1] as MoviesInDataBase);
@@ -36,6 +36,7 @@ export const BattleComponent = () => {
 
     useEffect(() => {
         dispatch(resetFutureListOfMovies());
+        dispatch(setRoundNumber(1))
     }, [listOfMovies]);
 
     useEffect(() => {
@@ -89,6 +90,9 @@ export const BattleComponent = () => {
 
         /**---- get rid of last two movies from current list ----*/
         dispatch(setCurrentListOfMovies(currentListOfMovies.slice(2) as MoviesInDataBase[]))
+
+        /**---- Change number of round to messageComponent ----*/
+        dispatch(setRoundNumber(roundNumber+1))
 
         /**---- setting chosenMovie to '' to reset state ----*/
         setChosenMovie('');
