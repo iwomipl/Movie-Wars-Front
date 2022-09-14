@@ -11,6 +11,7 @@ import {
     setCurrentListOfMovies
 } from "../../features/battle/battles.slice";
 import {MoviesInDataBase} from "types";
+import {MessageComponent} from "../MessageComponent/MessageComponent";
 
 import './battleComponent.css';
 
@@ -28,7 +29,9 @@ export const BattleComponent = () => {
     /**---- when there will be no more movies to choose from ----*/
     const [showWinner, setShowWinner] = useState(false);
     /**---- change class to show animation ----*/
-    const [movieInBattle, setMovieInBattle] = useState('movieInBattle ')
+    const [movieInBattle, setMovieInBattle] = useState('');
+    /**---- Show message on start of each battle ----*/
+    const [showMessage, setShowMessage] = useState(true);
 
 
     useEffect(() => {
@@ -51,8 +54,18 @@ export const BattleComponent = () => {
             setLeftMovie((currentListOfMovies as MoviesInDataBase[])[0] as MoviesInDataBase);
             setRightMovie((currentListOfMovies as MoviesInDataBase[])[1] as MoviesInDataBase);
 
-            /**---- setting class to get animation on div load ----*/
-            setMovieInBattle('movieInBattle ');
+        /**---- setting class to show start fight block on new battle load ----*/
+        setShowMessage(true);
+        setTimeout(()=>{
+            /**---- hide message div ----*/
+            setShowMessage(false);
+        }, 1500)
+
+        setTimeout(()=>{
+                /**---- setting class to get animation on div load ----*/
+                setMovieInBattle('movieInBattle ');
+            }, 1000)
+
     }, [currentListOfMovies])
 
     const handleClick = (e: MouseEvent<HTMLInputElement>) => {
@@ -77,17 +90,18 @@ export const BattleComponent = () => {
         /**---- get rid of last two movies from current list ----*/
         dispatch(setCurrentListOfMovies(currentListOfMovies.slice(2) as MoviesInDataBase[]))
 
-        /**---- setting class to '' to get animation on div load ----*/
+        /**---- setting chosenMovie to '' to reset state ----*/
         setChosenMovie('');
     }
 
     return <>{ !showWinner ?
         <div className="battleComponent">
+            {showMessage && <MessageComponent/>}
             <h4>You have chosen to battle {Math.ceil(numberOfBattles/2)} movies out of {additionalVariable.name} category. Choose which movie is better</h4>
         <div>
             <form className='fightingMovies' onSubmit={handleSubmit}>
                 <MovieView
-                    className={movieInBattle+'left'}
+                    className={movieInBattle+'non-visible'}
                     value="left"
                     origTitle={leftMovie.origTitle}
                     year={leftMovie.year}
@@ -100,7 +114,7 @@ export const BattleComponent = () => {
                     checked={chosenMovie === 'left'}
                 />
                 <MovieView
-                    className={movieInBattle+'left'}
+                    className={movieInBattle+'non-visible'}
                     value="right"
                     origTitle={rightMovie.origTitle}
                     year={rightMovie.year}

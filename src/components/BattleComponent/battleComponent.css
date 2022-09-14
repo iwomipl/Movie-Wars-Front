@@ -11,6 +11,9 @@
     display: grid;
     justify-content: center;
 }
+.non-visible {
+    display: none;
+}
 .movieInBattle {
     display: block;
     animation: movie-div-animation .65s cubic-bezier(1, .1, .5, 0);
@@ -175,28 +178,28 @@
         transform: matrix(1, 0, 0, 1, 0, 0) scale(1);
     }
     2.3% {
-        transform: matrix(0.5, 0, 0, 1, 82.5, 0) scale(1.021);
+        transform: matrix(0.5, 0, 0, 1, 0.5, 0) scale(1.021);
     }
     8.7% {
-        transform: matrix(-1, 0, 0, 1, 165, 0) scale(1.021);
+        transform: matrix(-1, 0, 0, 1, 0, 0) scale(1.021);
     }
     13% {
-        transform: matrix(0.5, 0, 0, 1, 247.5, 0) scale(1.021);
+        transform: matrix(0.5, 0, 0, 1, 0, 0) scale(1.021);
     }
     15.3% {
-        transform: matrix(1, 0, 0, 1, 330, 0) scale(1);
+        transform: matrix(1, 0, 0, 1, 0, 0) scale(1);
     }
     50% {
-        transform: matrix(1, 0, 0, 1, 330, 0) scale(1);
+        transform: matrix(1, 0, 0, 1, 0, 0) scale(1);
     }
     52.3% {
-        transform: matrix(0.5, 0, 0, 1, 247.5, 0) scale(1.021);
+        transform: matrix(0.5, 0, 0, 1, 0, 0) scale(1.021);
     }
     58.7% {
-        transform: matrix(-1, 0, 0, 1, 165, 0) scale(1.021);
+        transform: matrix(-1, 0, 0, 1, 0, 0) scale(1.021);
     }
     63% {
-        transform: matrix(0.5, 0, 0, 1, 82.5, 0) scale(1.021);
+        transform: matrix(0.5, 0, 0, 1, 0, 0) scale(1.021);
     }
     65.3% {
         transform: matrix(1, 0, 0, 1, 0, 0) scale(1);
@@ -208,47 +211,36 @@
 
 @keyframes movie-desc-animation {
     0% {
-        transform: matrix(1, 0, 0, 1, 0, 0) scale(1);
-        opacity: 1;
+        transform: matrix(1, 0, 0, 1, 0, 0);
     }
     8.7% {
-        transform: matrix(1, 0, 0, 1, 0, 0) scale(0.2);
-        opacity: 0.5;
+        transform: matrix(1, 0, 0, 1, 0, 0);
     }
     13% {
-        transform: matrix(1, 0, 0, 1, 0, 0) scale(0);
-        opacity: 0;
+        transform: matrix(1, 0, 0, 1, 0, 0);
     }
     14%{
-        transform: matrix(1, 0, 0, 1, -330, 0) scale(0);
-        opacity: 0.5;
+        transform: matrix(1, 0, 0, 1, 0, 0);
     }
     15.3% {
-        transform: matrix(1, 0, 0, 1, -330, 0) scale(1);
-        opacity: 1;
+        transform: matrix(1, 0, 0, 1, 0, 0);
     }
     50% {
-        transform: matrix(1, 0, 0, 1, -330, 0) scale(1);
-        opacity: 1;
+        transform: matrix(1, 0, 0, 1, 0, 0);
     }
     58.7% {
-        transform: matrix(1, 0, 0, 1, -330, 0) scale(0.2);
-        opacity: 0.5;
+        transform: matrix(1, 0, 0, 1, 0, 0);
     }
     63% {
-        transform: matrix(1, 0, 0, 1, -330, 0) scale(0);
-        opacity: 0;
+        transform: matrix(1, 0, 0, 1, 0, 0);
     }
     64.3% {
-        transform: matrix(1, 0, 0, 1, 0, 0) scale(0);
-        opacity: 0.5;
+        transform: matrix(1, 0, 0, 1, 0, 0);
     }
     65.3% {
-        transform: matrix(1, 0, 0, 1, 0, 0) scale(1);
-        opacity: 1;
+        transform: matrix(1, 0, 0, 1, 0, 0);
     }
     100%{
-        transform: matrix(1, 0, 0, 1, 0, 0) scale(1);
-        opacity: 1;
+        transform: matrix(1, 0, 0, 1, 0, 0);
     }
 }
