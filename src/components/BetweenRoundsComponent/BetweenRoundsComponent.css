@@ -1,0 +1,32 @@
+.round-name {
+    font-size: 5rem;
+    font-family: Stencil;
+    margin-bottom: 0;
+    animation: fade-in-and-out 1.5s linear;
+}
+
+.fight{
+    margin-top: 0;
+    font-size: 10rem;
+    font-family: "Bradley Hand ITC";
+    animation: fade-in-and-out 1.5s linear;
+}
+
+@keyframes fade-in-and-out {
+    0% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 1;
+    }
+    90% {
+        scale: 1.5;
+        opacity: 1;
+        margin-bottom: 10vh;
+    }
+    100% {
+        opacity: 0;
+        scale: 2;
+        margin-bottom: 20vh;
+    }
+}
