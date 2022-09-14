@@ -19,8 +19,8 @@ const initialState: BattlesState = {
     futureListOfMovies: [],
     currentBattle: [],
     additionalVariable: {
-        name: '',
-        number: 0,
+        name: 'Various',
+        number: 8,
     },
 };
 
@@ -66,7 +66,7 @@ export const battlesSlice = createSlice({
             state.additionalVariable = action.payload;
         },
         resetAdditionalVariable: (state, action: SetAdditionalVariable)=>{
-            state.additionalVariable = {name: '', number: 0,};
+            state.additionalVariable = {name: 'Various', number: 8,};
         },
     },
 });
