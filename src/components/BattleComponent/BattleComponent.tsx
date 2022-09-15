@@ -31,7 +31,7 @@ export const BattleComponent = () => {
     /**---- change class to show animation ----*/
     const [movieInBattle, setMovieInBattle] = useState('');
     /**---- Show message on start of each battle ----*/
-    const [showMessage, setShowMessage] = useState(true);
+    const [showMessage, setShowMessage] = useState(false);
 
 
     useEffect(() => {
@@ -46,6 +46,7 @@ export const BattleComponent = () => {
             dispatch(setCurrentListOfMovies(futureListOfMovies));
             /**---- then delete everything from list of movies, to start collecting winners from pairs ----*/
             dispatch(resetFutureListOfMovies());
+
         } else if (currentListOfMovies.length === 0 && futureListOfMovies.length === 1) {
             /**---- if there are no list of movies to chose from, ane only one future movie is remaining, show the winner ----*/
             setShowWinner(true);
@@ -55,17 +56,28 @@ export const BattleComponent = () => {
             setLeftMovie((currentListOfMovies as MoviesInDataBase[])[0] as MoviesInDataBase);
             setRightMovie((currentListOfMovies as MoviesInDataBase[])[1] as MoviesInDataBase);
 
-        /**---- setting class to show start fight block on new battle load ----*/
-        setShowMessage(true);
-        setTimeout(()=>{
-            /**---- hide message div ----*/
-            setShowMessage(false);
-        }, 1500)
+        /**---- check if it is closed stage of battle ----*/
+        if ((currentListOfMovies.length === 0 && [2,4,8,16,32,64,128].includes(futureListOfMovies.length)) || roundNumber === 1){
 
-        setTimeout(()=>{
+            /**---- setting class to show start fight block on new battle load ----*/
+            setShowMessage(true);
+
+            setTimeout(()=>{
+                /**---- hide message div ----*/
+                setShowMessage(false);
+            }, 1980);
+
+            setTimeout(()=>{
                 /**---- setting class to get animation on div load ----*/
                 setMovieInBattle('movieInBattle ');
-            }, 1000)
+            }, 2000);
+            return;
+        } else {
+
+            /**---- setting class to get animation on div load ----*/
+            setMovieInBattle('movieInBattle ');
+        }
+
 
     }, [currentListOfMovies])
 

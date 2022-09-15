@@ -1,22 +1,24 @@
 .round-name {
-    font-size: 5rem;
+    font-size: 7rem;
     font-family: Stencil;
-    margin-bottom: 0;
+    margin-bottom: 1vh;
     margin-top: 0;
     padding: 0;
-    line-height: 2rem;
+    text-shadow: 0 0 2px white, 0 0 4px white, 0 0 6px white;
     animation: fade-in-and-out 2s linear;
+    max-width: 100vw;
 }
 
 .fight{
     margin-top: 0;
-    font-size: 10rem;
+    font-size: 13rem;
     font-family: "Bradley Hand ITC";
     animation: fade-in-and-out 2s linear;
+    max-width: 100vw;
 }
 
 .message-color{
-    color: greenyellow;
+    color: var(--message-color);
 }
 
 @keyframes fade-in-and-out {
@@ -27,13 +29,11 @@
         opacity: 1;
     }
     85% {
-        scale: 1.5;
+        scale: 1.1;
         opacity: 1;
-        margin-bottom: 10vh;
     }
     100% {
         opacity: 0;
-        scale: 2;
-        margin-bottom: 20vh;
+        scale: 1.3;
     }
 }
