@@ -2,14 +2,21 @@
     font-size: 5rem;
     font-family: Stencil;
     margin-bottom: 0;
-    animation: fade-in-and-out 1.5s linear;
+    margin-top: 0;
+    padding: 0;
+    line-height: 2rem;
+    animation: fade-in-and-out 2s linear;
 }
 
 .fight{
     margin-top: 0;
     font-size: 10rem;
     font-family: "Bradley Hand ITC";
-    animation: fade-in-and-out 1.5s linear;
+    animation: fade-in-and-out 2s linear;
+}
+
+.message-color{
+    color: greenyellow;
 }
 
 @keyframes fade-in-and-out {
@@ -19,7 +26,7 @@
     50% {
         opacity: 1;
     }
-    90% {
+    85% {
         scale: 1.5;
         opacity: 1;
         margin-bottom: 10vh;

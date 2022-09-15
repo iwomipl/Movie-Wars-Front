@@ -1,6 +1,6 @@
 .navigation {
     position: relative;
-    color: #61dafb;
+    color: var(--main-color);
     display: flex;
     justify-content: center;
     text-align: center;
@@ -25,7 +25,7 @@
     font-size: 1.5em;
 }
 .navigation__button{
-    background-color: #61dafb;
+    background-color: var(--main-color);
     color: white;
     text-shadow: 1px 1px 1px black;
     text-decoration: none;
@@ -35,4 +35,7 @@
     width: auto;
     height: 5vh;
     margin: 0 0.1vw;
+}
+.navigation__button:hover{
+    background-color: var(--main-hoover-color);
 }

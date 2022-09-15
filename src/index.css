@@ -1,3 +1,11 @@
+:root {
+  --main-color: #61dafb;
+  --main-dark-color: #31a7c8;
+  --main-disabled-color: gray;
+  --main-hoover-color: #9faab7;
+  --clicked-movie-color: #41b8d9;
+}
+
 body {
   margin: 0;
   padding: 0;
