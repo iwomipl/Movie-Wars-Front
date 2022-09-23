@@ -36,7 +36,7 @@ export const BattleComponent = () => {
 
     useEffect(() => {
         dispatch(resetFutureListOfMovies());
-        dispatch(setRoundNumber(1))
+        dispatch(setRoundNumber(1));
     }, [listOfMovies]);
 
     useEffect(() => {
@@ -71,7 +71,7 @@ export const BattleComponent = () => {
                 /**---- setting class to get animation on div load ----*/
                 setMovieInBattle('movieInBattle ');
             }, 2000);
-            return;
+
         } else {
 
             /**---- setting class to get animation on div load ----*/
@@ -122,6 +122,7 @@ export const BattleComponent = () => {
                     origTitle={leftMovie.origTitle}
                     year={leftMovie.year}
                     imgOfMovie={leftMovie.imgOfMovie}
+                    imgClassName="movieImg--left"
                     poster={leftMovie.poster}
                     actors={leftMovie.actors}
                     plot={leftMovie.plot}
@@ -135,6 +136,7 @@ export const BattleComponent = () => {
                     origTitle={rightMovie.origTitle}
                     year={rightMovie.year}
                     imgOfMovie={rightMovie.imgOfMovie}
+                    imgClassName="movieImg--right"
                     poster={rightMovie.poster}
                     actors={rightMovie.actors}
                     plot={rightMovie.plot}

@@ -6,6 +6,7 @@ interface Props extends Omit<MoviesInDataBase, 'rated' | 'polTitle' | 'position'
     value: 'left' | 'right';
     function: (e: MouseEvent<HTMLInputElement>) => void;
     checked: boolean;
+    imgClassName?: string;
 }
 
 
@@ -16,7 +17,7 @@ export const MovieView = (props: Props) => {
             type="image"
             name={props.origTitle}
             alt={props.origTitle}
-            className="movieImg"
+            className={`movieImg${props.imgClassName? ` ${props.imgClassName}`: ''}`}
             value={props.value}
             onClick={(e) => props.function(e)}
             src={!props.poster || props.poster === 'N/A' ? props.imgOfMovie : props.poster}
