@@ -180,72 +180,48 @@
 
 @keyframes movie-img-animation-left {
     0% {
-        transform: matrix(1, 0, 0, 1, 0, 0) scale(1);
-    }
-    2.3% {
-        transform: matrix(0.5, 0, 0, 1, 0.5, 0) scale(1.021);
+        transform: rotate(0);
     }
     8.7% {
-        transform: matrix(-1, 0, 0, 1, 0, 0) scale(1.021);
-    }
-    13% {
-        transform: matrix(0.5, 0, 0, 1, 0, 0) scale(1.021);
+        transform: rotate3d(0, 1, 0, 90deg);
     }
     15.3% {
-        transform: matrix(1, 0, 0, 1, 0, 0) scale(1);
+        transform: rotate(0);
     }
     50% {
-        transform: matrix(1, 0, 0, 1, 0, 0) scale(1);
-    }
-    52.3% {
-        transform: matrix(1, 0, 0, 0.5, 0, 0) scale(1.021);
+        transform: rotate(0);
     }
     58.7% {
-        transform: matrix(1, 0, 0, -1, 0, 0) scale(1.021);
-    }
-    63% {
-        transform: matrix(1, 0, 0, 0.5, 0, 0) scale(1.021);
+        transform: rotate3d(1, 0, 0, 90deg);;
     }
     65.3% {
-        transform: matrix(1, 0, 0, 1, 0, 0) scale(1);
+        transform: rotate(0);
     }
     100%{
-        transform: matrix(1, 0, 0, 1, 0, 0);
+        transform: rotate(0);
     }
 }
 @keyframes movie-img-animation-right {
     0% {
-        transform: matrix(1, 0, 0, 1, 0, 0) scale(1);
-    }
-    2.3% {
-        transform: matrix(1, 0, 0, 0.5, 0.5, 0) scale(1.021);
+        transform: rotate(0);
     }
     8.7% {
-        transform: matrix(1, 0, 0, -1, 0, 0) scale(1.021);
-    }
-    13% {
-        transform: matrix(1, 0, 0, 0.5, 0, 0) scale(1.021);
+        transform: rotate3d(1, 0, 0, 90deg);
     }
     15.3% {
-        transform: matrix(1, 0, 0, 1, 0, 0) scale(1);
+        transform: rotate(0);
     }
     50% {
-        transform: matrix(1, 0, 0, 1, 0, 0) scale(1);
-    }
-    52.3% {
-        transform: matrix(0.5, 0, 0, 1, 0, 0) scale(1.021);
+        transform: rotate(0);
     }
     58.7% {
-        transform: matrix(-1, 0, 0, 1, 0, 0) scale(1.021);
-    }
-    63% {
-        transform: matrix(0.5, 0, 0, 1, 0, 0) scale(1.021);
+        transform: rotate3d(0, 1, 0, 90deg);;
     }
     65.3% {
-        transform: matrix(1, 0, 0, 1, 0, 0) scale(1);
+        transform: rotate(0);
     }
     100%{
-        transform: matrix(1, 0, 0, 1, 0, 0);
+        transform: rotate(0);
     }
 }
 
