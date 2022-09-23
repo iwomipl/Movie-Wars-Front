@@ -1,5 +1,4 @@
 export const messageSwitch = (number: number): string=>{
-  console.log(number)
   switch (number){
     case 2:
       return 'Final';

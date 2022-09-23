@@ -39,3 +39,8 @@
 .navigation__button:hover{
     background-color: var(--main-hoover-color);
 }
+
+.navigation__button--disabled {
+    pointer-events: none;
+    background-color: var(--main-disabled-color);
+}

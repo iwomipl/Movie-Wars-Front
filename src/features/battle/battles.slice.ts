@@ -12,6 +12,7 @@ export interface BattlesState {
         number?: number;
     };
     roundNumber: number;
+    showForm: boolean;
 }
 
 const initialState: BattlesState = {
@@ -24,6 +25,7 @@ const initialState: BattlesState = {
         number: 256,
     },
     roundNumber: 1,
+    showForm: true,
 };
 
 interface SetNumberOfBattles {
@@ -46,6 +48,9 @@ interface SetAdditionalVariable {
 }
 interface SetRoundNumber {
     payload: number;
+}
+interface SetShowForm {
+    payload: boolean;
 }
 
 
@@ -77,7 +82,10 @@ export const battlesSlice = createSlice({
         setRoundNumber: (state, action: SetRoundNumber)=>{
             state.roundNumber = action.payload;
         },
+        setShowForm: (state, action: SetShowForm)=>{
+            state.showForm = action.payload;
+        },
     },
 });
 
-export const {setNumberOfBattles, setCurrentBattle, setCurrentListOfMovies, resetFutureListOfMovies, addMovieToFutureListOfMovies, setAdditionalVariable, resetAdditionalVariable, setRoundNumber} = battlesSlice.actions;
+export const {setNumberOfBattles, setCurrentBattle, setCurrentListOfMovies, resetFutureListOfMovies, addMovieToFutureListOfMovies, setAdditionalVariable, resetAdditionalVariable, setRoundNumber, setShowForm} = battlesSlice.actions;
