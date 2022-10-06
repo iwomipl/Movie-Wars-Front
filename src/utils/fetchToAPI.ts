@@ -1,6 +1,7 @@
-import { MoviesInDataBase, GenresStatObject } from 'types';
 import {config} from './config/config';
 import {headerAndBodyObject} from "../types/fetchTypes";
+import { MoviesInDataBase, GenresStatObject } from 'types';
+
 
 export const fetchToAPI = async (method: string, number?: number, genre?: string): Promise<MoviesInDataBase[] | [] | {
     name: string;
@@ -46,6 +47,29 @@ const createHeaderAndBodyObject = (method: string, number?: number, genre?: stri
     return {
         method,
         headers,
+    }
+}
+
+export const fetchForNumbers = async (): Promise<number|string> =>{
+    const path  = config.listOfMoviesUpdatePath;
+    try {
+
+            const results = await fetch(`${path}/get-number`, {
+                method: 'POST',
+                headers: { 'Content-Type' : 'application/json',},
+                body:       JSON.stringify({
+                    genre: 'Drama',
+                    rating: 'PG-13',
+                    startYear: 1997,
+                    endYear: 1997,
+                }),
+            });
+            const data = await results.json() as number|Error;
+        if(Number.isInteger(data)) return data as number;
+            throw new Error((data as Error).message);
+    } catch(err){
+        console.error('This is error',err)
+        return (err as Error).message;
     }
 }
 

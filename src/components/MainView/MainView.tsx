@@ -3,19 +3,21 @@ import {NavLink} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {setShowForm} from "../../features/battle/battles.slice";
 
+
 import './mainView.css'
 
 
 export const MainView = () => {
     const dispatch = useDispatch();
 
+
     useEffect(()=>{
         dispatch(setShowForm(false))
     },[])
-
     const handleClick = (showFormChange: boolean)=>{
         dispatch(setShowForm(showFormChange))
     }
+
 
     return <>
         <h1>Hi there!</h1>
