@@ -27,7 +27,7 @@ export const CommonInput = (props: Props)=>{
             name={props.name}
             onChange={props.function || undefined}
             className={props.className}
-            checked={((Number(additionalVariable.number) >= Math.ceil(numberOfBattles/2)) && props.value === numberOfBattles) || props.value === additionalVariable.name}
+            checked={((Number(additionalVariable.number) >= Math.ceil(numberOfBattles/2)) && props.value === numberOfBattles) || props.value === additionalVariable.genre}
             disabled={props.disabled}
         />
     </label>

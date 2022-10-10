@@ -15,9 +15,9 @@ export const Genres = ()=>{
     const chosenNumber = (MoviesListState.genresStats as GenresStatObject)[e.target.value];
 
    if(chosenNumber >= Math.ceil(numberOfBattles/2)) {
-     dispatch(setAdditionalVariable({name: e.target.value, number: chosenNumber}))
+     dispatch(setAdditionalVariable({genre: e.target.value, number: chosenNumber}));
    } else {
-     dispatch(setAdditionalVariable({name: e.target.value, number: chosenNumber}));
+     dispatch(setAdditionalVariable({genre: e.target.value, number: chosenNumber}));
      dispatch(setNumberOfBattles(8*2-1));
    }
   };

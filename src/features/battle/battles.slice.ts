@@ -8,7 +8,10 @@ export interface BattlesState {
     futureListOfMovies: MoviesInDataBase[];
     currentBattle: MoviesInDataBase[];
     additionalVariable: {
-        name: string;
+        genre: string;
+        rating?: string;
+        startYear?: number;
+        endYear?: number;
         number?: number;
     };
     roundNumber: number;
@@ -21,7 +24,10 @@ const initialState: BattlesState = {
     futureListOfMovies: [],
     currentBattle: [],
     additionalVariable: {
-        name: 'Various',
+        genre: 'Various',
+        rating: 'All',
+        startYear: 2000,
+        endYear: Number(new Date().getFullYear()),
         number: 256,
     },
     roundNumber: 1,
@@ -42,8 +48,11 @@ interface SetCurrentBattle {
 }
 interface SetAdditionalVariable {
     payload: {
-        name: string;
-        number: number;
+        genre: string;
+        rating?: string;
+        startYear?: number;
+        endYear?: number;
+        number?: number;
     };
 }
 interface SetRoundNumber {
@@ -77,7 +86,7 @@ export const battlesSlice = createSlice({
             state.additionalVariable = action.payload;
         },
         resetAdditionalVariable: (state, action: SetAdditionalVariable)=>{
-            state.additionalVariable = {name: 'Various', number: 256,};
+            state.additionalVariable = {genre: 'Various', rating: 'All', number: 256,};
         },
         setRoundNumber: (state, action: SetRoundNumber)=>{
             state.roundNumber = action.payload;
