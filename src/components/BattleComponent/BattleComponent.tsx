@@ -1,25 +1,27 @@
 import React, {FormEvent, MouseEvent, useEffect, useState} from "react";
-import {MovieView} from "../MovieView/MovieView";
-
-import './battleComponent.css'
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../store";
-import {MoviesInDataBase} from "types";
+import {MovieView} from "../MovieView/MovieView";
+import { ShowWinnerMovie } from "../ShowWinnerMovie/ShowWinnerMovie";
 import {MoviesListState} from "../../features/moviesList/moviesList.slice";
 import {
     addMovieToFutureListOfMovies,
     BattlesState,
     resetFutureListOfMovies,
-    setCurrentListOfMovies
+    setCurrentListOfMovies, setRoundNumber
 } from "../../features/battle/battles.slice";
-import { ShowWinnerMovie } from "../ShowWinnerMovie/ShowWinnerMovie";
+import {MoviesInDataBase} from "types";
+import {MessageComponent} from "../MessageComponent/MessageComponent";
+
+import './battleComponent.css';
 
 export const BattleComponent = () => {
     const dispatch = useDispatch();
     /**---- base list of movies ----*/
     const {listOfMovies}: MoviesListState = useSelector((store: RootState) => store.moviesList);
     /**---- arrays of movies that are currently chosen from, and movies that will be chosen on next stage  ----*/
-    const {currentListOfMovies, futureListOfMovies}: BattlesState = useSelector((store: RootState) => store.battles);
+    const {currentListOfMovies, futureListOfMovies, numberOfBattles, roundNumber}: BattlesState = useSelector((store: RootState) => store.battles);
+    const {additionalVariable} = useSelector((store: RootState) => store.battles);
     const [leftMovie, setLeftMovie] = useState((currentListOfMovies as MoviesInDataBase[])[0] as MoviesInDataBase);
     const [rightMovie, setRightMovie] = useState((currentListOfMovies as MoviesInDataBase[])[1] as MoviesInDataBase);
     /**---- chosenMovie to change class ----*/
@@ -27,11 +29,14 @@ export const BattleComponent = () => {
     /**---- when there will be no more movies to choose from ----*/
     const [showWinner, setShowWinner] = useState(false);
     /**---- change class to show animation ----*/
-    const [movieInBattle, setMovieInBattle] = useState('movieInBattle ')
+    const [movieInBattle, setMovieInBattle] = useState('');
+    /**---- Show message on start of each battle ----*/
+    const [showMessage, setShowMessage] = useState(false);
 
 
     useEffect(() => {
         dispatch(resetFutureListOfMovies());
+        dispatch(setRoundNumber(1));
     }, [listOfMovies]);
 
     useEffect(() => {
@@ -41,6 +46,7 @@ export const BattleComponent = () => {
             dispatch(setCurrentListOfMovies(futureListOfMovies));
             /**---- then delete everything from list of movies, to start collecting winners from pairs ----*/
             dispatch(resetFutureListOfMovies());
+
         } else if (currentListOfMovies.length === 0 && futureListOfMovies.length === 1) {
             /**---- if there are no list of movies to chose from, ane only one future movie is remaining, show the winner ----*/
             setShowWinner(true);
@@ -50,8 +56,29 @@ export const BattleComponent = () => {
             setLeftMovie((currentListOfMovies as MoviesInDataBase[])[0] as MoviesInDataBase);
             setRightMovie((currentListOfMovies as MoviesInDataBase[])[1] as MoviesInDataBase);
 
+        /**---- check if it is closed stage of battle ----*/
+        if ((currentListOfMovies.length === 0 && [2,4,8,16,32,64,128].includes(futureListOfMovies.length)) || roundNumber === 1){
+
+            /**---- setting class to show start fight block on new battle load ----*/
+            setShowMessage(true);
+
+            setTimeout(()=>{
+                /**---- hide message div ----*/
+                setShowMessage(false);
+            }, 1980);
+
+            setTimeout(()=>{
+                /**---- setting class to get animation on div load ----*/
+                setMovieInBattle('movieInBattle ');
+            }, 2000);
+
+        } else {
+
             /**---- setting class to get animation on div load ----*/
             setMovieInBattle('movieInBattle ');
+        }
+
+
     }, [currentListOfMovies])
 
     const handleClick = (e: MouseEvent<HTMLInputElement>) => {
@@ -76,21 +103,26 @@ export const BattleComponent = () => {
         /**---- get rid of last two movies from current list ----*/
         dispatch(setCurrentListOfMovies(currentListOfMovies.slice(2) as MoviesInDataBase[]))
 
-        /**---- setting class to '' to get animation on div load ----*/
+        /**---- Change number of round to messageComponent ----*/
+        dispatch(setRoundNumber(roundNumber+1))
+
+        /**---- setting chosenMovie to '' to reset state ----*/
         setChosenMovie('');
     }
 
     return <>{ !showWinner ?
         <div className="battleComponent">
-            <h4>Choose which one is better</h4>
+            {showMessage && <MessageComponent/>}
+            <h4>You have chosen to battle {Math.ceil(numberOfBattles/2)} movies out of {additionalVariable.name} category. Choose which movie is better</h4>
         <div>
             <form className='fightingMovies' onSubmit={handleSubmit}>
                 <MovieView
-                    className={movieInBattle+'left'}
+                    className={movieInBattle+'non-visible'}
                     value="left"
                     origTitle={leftMovie.origTitle}
                     year={leftMovie.year}
                     imgOfMovie={leftMovie.imgOfMovie}
+                    imgClassName="movieImg--left"
                     poster={leftMovie.poster}
                     actors={leftMovie.actors}
                     plot={leftMovie.plot}
@@ -99,11 +131,12 @@ export const BattleComponent = () => {
                     checked={chosenMovie === 'left'}
                 />
                 <MovieView
-                    className={movieInBattle+'left'}
+                    className={movieInBattle+'non-visible'}
                     value="right"
                     origTitle={rightMovie.origTitle}
                     year={rightMovie.year}
                     imgOfMovie={rightMovie.imgOfMovie}
+                    imgClassName="movieImg--right"
                     poster={rightMovie.poster}
                     actors={rightMovie.actors}
                     plot={rightMovie.plot}

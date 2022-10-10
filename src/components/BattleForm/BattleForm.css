@@ -4,7 +4,7 @@
     padding: 5vh;
     border: 1px solid #282c34;
     border-radius: 5px;
-    background-color: #61dafb;
+    background-color: var(--main-color);
     font-weight: bolder;
     color: whitesmoke;
     text-transform: uppercase;
@@ -53,7 +53,7 @@
     height: 40px;
     width: 10vw;
     transition: all 0.15s ease-out 0s;
-    background: #31a7c8;
+    background: var(--main-dark-color);
     border: none;
     color: #fff;
     cursor: pointer;
@@ -64,14 +64,14 @@
 }
 
 .option-input:hover {
-    background: #9faab7;
+    background: var(--main-hoover-color);
 }
 
 .option-input:checked {
-    background: #61dafb;
+    background: var(--main-color);
 }
 .option-input:disabled {
-    background: gray;
+    background: var(--main-disabled-color);
     color: white;
     pointer-events: none;
 }
@@ -91,7 +91,7 @@
     -webkit-animation: click-wave 0.65s;
     -moz-animation: click-wave 0.65s;
     animation: click-wave 0.65s;
-    background: #61dafb;
+    background: var(--main-color);
     content: '';
     display: block;
     position: relative;

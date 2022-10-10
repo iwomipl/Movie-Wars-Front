@@ -1,10 +1,21 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {NavLink} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {setShowForm} from "../../features/battle/battles.slice";
 
 import './mainView.css'
 
 
 export const MainView = () => {
+    const dispatch = useDispatch();
+
+    useEffect(()=>{
+        dispatch(setShowForm(false))
+    },[])
+
+    const handleClick = (showFormChange: boolean)=>{
+        dispatch(setShowForm(showFormChange))
+    }
 
     return <>
         <h1>Hi there!</h1>
@@ -18,7 +29,7 @@ export const MainView = () => {
         <em>Remember, that you don't know all movies and the more movies you will choose from the greater the chance to not know specific movie.</em>
         <h3>Godspeed and have fun with movies!</h3>
         <div id="mainButton">
-        <NavLink to='/battle' className="navigation__button" >To Battle!</NavLink>
+        <NavLink to='/battle' className="navigation__button" onClick={()=>handleClick(true)}>To Battle!</NavLink>
         </div>
         <em id="bottom-em">The app is created mainly for computers. It might be working on phones, but looks much worse.</em>
     </>
