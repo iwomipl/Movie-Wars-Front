@@ -4,11 +4,13 @@ import { MoviesInDataBase, GenresStatObject } from "types";
 export interface MoviesListState {
     listOfMovies: Promise<MoviesInDataBase[]> | MoviesInDataBase[];
     genresStats: Promise<GenresStatObject> | GenresStatObject;
+    numberOfBattlesPossible: [8, 16, 32, 64, 128, 256];
 }
 
 const initialState: MoviesListState = {
-    listOfMovies:  [],//[(async()=>await fetchForMoviesList(50))()][0],
+    listOfMovies:  [],
     genresStats: {},
+    numberOfBattlesPossible: [8, 16, 32, 64, 128, 256],
 };
 
 interface SetMoviesList {

@@ -11,6 +11,8 @@ export interface BattlesState {
         name: string;
         number?: number;
     };
+    roundNumber: number;
+    showForm: boolean;
 }
 
 const initialState: BattlesState = {
@@ -19,9 +21,11 @@ const initialState: BattlesState = {
     futureListOfMovies: [],
     currentBattle: [],
     additionalVariable: {
-        name: '',
-        number: 0,
+        name: 'Various',
+        number: 256,
     },
+    roundNumber: 1,
+    showForm: true,
 };
 
 interface SetNumberOfBattles {
@@ -42,6 +46,13 @@ interface SetAdditionalVariable {
         number: number;
     };
 }
+interface SetRoundNumber {
+    payload: number;
+}
+interface SetShowForm {
+    payload: boolean;
+}
+
 
 export const battlesSlice = createSlice({
     name: 'battles',
@@ -66,9 +77,15 @@ export const battlesSlice = createSlice({
             state.additionalVariable = action.payload;
         },
         resetAdditionalVariable: (state, action: SetAdditionalVariable)=>{
-            state.additionalVariable = {name: '', number: 0,};
+            state.additionalVariable = {name: 'Various', number: 256,};
+        },
+        setRoundNumber: (state, action: SetRoundNumber)=>{
+            state.roundNumber = action.payload;
+        },
+        setShowForm: (state, action: SetShowForm)=>{
+            state.showForm = action.payload;
         },
     },
 });
 
-export const {setNumberOfBattles, setCurrentBattle, setCurrentListOfMovies, resetFutureListOfMovies, addMovieToFutureListOfMovies, setAdditionalVariable, resetAdditionalVariable} = battlesSlice.actions;
+export const {setNumberOfBattles, setCurrentBattle, setCurrentListOfMovies, resetFutureListOfMovies, addMovieToFutureListOfMovies, setAdditionalVariable, resetAdditionalVariable, setRoundNumber, setShowForm} = battlesSlice.actions;

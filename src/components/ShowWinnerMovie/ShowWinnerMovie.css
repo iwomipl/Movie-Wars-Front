@@ -1,0 +1,9 @@
+.winner-h3{
+ margin-bottom: 5px;
+}
+.winner-h2{
+ margin-top: 5px;
+ margin-bottom: 40px;
+ z-index: 10;
+ text-shadow: 0 0 1px white, 0 0 3px white, 0 0 5px white;
+}
