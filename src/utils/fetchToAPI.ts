@@ -50,7 +50,7 @@ const createHeaderAndBodyObject = (method: string, number?: number, genre?: stri
     }
 }
 
-export const fetchForNumbers = async (): Promise<number|string> =>{
+export const fetchForNumbers = async ({genre = 'Drama', rating = 'PG-13', startYear = 1903, endYear = 2022}): Promise<number|string> =>{
     const path  = config.listOfMoviesUpdatePath;
     try {
 
@@ -58,10 +58,10 @@ export const fetchForNumbers = async (): Promise<number|string> =>{
                 method: 'POST',
                 headers: { 'Content-Type' : 'application/json',},
                 body:       JSON.stringify({
-                    genre: 'Drama',
-                    rating: 'PG-13',
-                    startYear: 1997,
-                    endYear: 1997,
+                    genre,
+                    rating,
+                    startYear,
+                    endYear,
                 }),
             });
             const data = await results.json() as number|Error;

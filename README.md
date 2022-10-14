@@ -1,10 +1,14 @@
 # Movie Wars Front end app
 Here you can wind app on which you can see what is your favourite movie. After installing frontend, and it's backend app you will be able to choose between two movies at a time. You will do it until there will be only one movie left. YOUR FAVOURITE MOVIE.
 
+##UPDATE GENRE CHOOSING
+Now user can choose genre of movies to compare.
+
 # Tech stack
-Frontend of the app uses React with Redux. It communicates with backend fetch function to get needed data.
+Frontend of the app uses React with Redux. It communicates with backend REST API with a fetch function to get needed data.
 
 #----------------WORKING DEMO ------------- Until end of August ----------------
+
 ##[MOVIE WARS](https://iwomi.networkmanager.pl/)
 
 # Installing app
@@ -29,6 +33,6 @@ I want to add another features to frontend app, so backend would have to deal wi
 * choosing from movies of one director
 * choosing from movies with one actor
 * choosing from movies in range od years
-* choosing from movies of one genre
+* choosing from movies of one genre - DONE
 * choosing from movies of one rating
 * winning movie screen will show similar movies to the winning one by director or by genre
