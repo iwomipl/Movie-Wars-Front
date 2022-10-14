@@ -1,19 +1,20 @@
 import {createSlice} from "@reduxjs/toolkit";
 import { MoviesInDataBase } from "types";
 
+export interface AdditionalVariable {
+    genre: string;
+    rating?: string;
+    startYear?: number;
+    endYear?: number;
+    number?: number;
+}
 
 export interface BattlesState {
     numberOfBattles: number;
     currentListOfMovies: MoviesInDataBase[];
     futureListOfMovies: MoviesInDataBase[];
     currentBattle: MoviesInDataBase[];
-    additionalVariable: {
-        genre: string;
-        rating?: string;
-        startYear?: number;
-        endYear?: number;
-        number?: number;
-    };
+    additionalVariable: AdditionalVariable;
     roundNumber: number;
     showForm: boolean;
 }
@@ -26,7 +27,7 @@ const initialState: BattlesState = {
     additionalVariable: {
         genre: 'Various',
         rating: 'All',
-        startYear: 2000,
+        startYear: 1901,
         endYear: Number(new Date().getFullYear()),
         number: 256,
     },
@@ -86,7 +87,13 @@ export const battlesSlice = createSlice({
             state.additionalVariable = action.payload;
         },
         resetAdditionalVariable: (state, action: SetAdditionalVariable)=>{
-            state.additionalVariable = {genre: 'Various', rating: 'All', number: 256,};
+            state.additionalVariable = {
+                genre: 'Various',
+                rating: 'All',
+                startYear: 1901,
+                endYear: Number(new Date().getFullYear()),
+                number: 256,
+            };
         },
         setRoundNumber: (state, action: SetRoundNumber)=>{
             state.roundNumber = action.payload;
