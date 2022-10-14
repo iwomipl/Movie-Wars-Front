@@ -29,7 +29,7 @@ export const BattleView = () => {
     const handleSubmit = async (e: FormEvent<HTMLFormElement | HTMLInputElement>) => {
         e.preventDefault();
         if (numberOfBattles === 15 || numberOfBattles === 31 ||numberOfBattles === 63 || numberOfBattles === 127 || numberOfBattles === 255 || numberOfBattles === 511) {
-            await (async () => await dispatch(await setMoviesList(await fetchToAPI('POST', Math.ceil(numberOfBattles / 2), additionalVariable.name) as MoviesInDataBase[])))();
+            await (async () => await dispatch(await setMoviesList(await fetchToAPI('POST', Math.ceil(numberOfBattles / 2), additionalVariable.genre) as MoviesInDataBase[])))();
             dispatch(setShowForm(false));
         } else {
             alert(`Number of movies to battle should be 8, 16, 32, 64, 128, or 256.`)
