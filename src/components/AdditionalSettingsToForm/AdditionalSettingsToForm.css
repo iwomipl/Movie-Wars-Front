@@ -1,0 +1,21 @@
+.option-search{
+  text-align: center;
+  font-weight: bolder;
+  text-transform: capitalize;
+}
+
+#start-battles-disabled {
+  bottom: 5vh;
+  cursor: pointer;
+  padding: 5vh;
+  border: 1px solid #282c34;
+  border-radius: 5px;
+  pointer-events: none;
+  background: var(--main-disabled-color);
+  font-weight: bolder;
+  color: whitesmoke;
+  text-transform: uppercase;
+  text-shadow: 0 0 3px black;
+  width: 89vw;
+  margin: 10px;
+}
