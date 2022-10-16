@@ -3,14 +3,14 @@ import {headerAndBodyObject} from "../types/fetchTypes";
 import { MoviesInDataBase, GenresStatObject } from 'types';
 
 
-export const fetchToAPI = async (method: string, number?: number, genre?: string): Promise<MoviesInDataBase[] | [] | {
+export const fetchToAPI = async (method: string, number?: number, genre?: string, startYear?: number, endYear?: number, rating?: string): Promise<MoviesInDataBase[] | [] | {
     name: string;
     number: number;
 }[] | GenresStatObject> =>{
     const path  = config.listOfMoviesUpdatePath;
     try {
         if (number === 8 || number === 16 ||number === 32 || number === 64 || number === 128 || number === 256) {
-            const results = await fetch(`${path}/get-list`, createHeaderAndBodyObject(method, number, genre));
+            const results = await fetch(`${path}/get-list`, createHeaderAndBodyObject(method, number, genre, startYear, endYear, rating));
             const data = await results.json()
 
             return await data;
@@ -28,12 +28,15 @@ export const fetchToAPI = async (method: string, number?: number, genre?: string
     }
 }
 
-const createHeaderAndBodyObject = (method: string, number?: number, genre?: string): headerAndBodyObject =>{
+const createHeaderAndBodyObject = (method: string, number?: number, genre?: string, startYear?: number, endYear?: number, rating?: string): headerAndBodyObject =>{
     const headers = { 'Content-Type' : 'application/json',};
     const body = number && (genre || genre === '') ?
       JSON.stringify({
-          number: number,
-          genre: genre,
+          number,
+          genre,
+          startYear,
+          endYear,
+          rating,
       })
       : null;
 
