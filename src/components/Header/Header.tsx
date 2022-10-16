@@ -10,16 +10,17 @@ export const Header = () => {
   const dispatch = useDispatch();
   const {showForm} = useSelector((store: RootState) => store.battles);
 
-  const handleClick = (showFormChange: boolean)=>{
+   const handleClick = (showFormChange: 0|1|2 = 1)=>{
     if (showFormChange) {
       dispatch(setShowForm(showFormChange))
     } else {
-      dispatch(setShowForm(true));
+      dispatch(setShowForm(1));
       dispatch(setShowForm(showFormChange))
     }
   }
 
     return (
+      <div>
         <div className="navigation">
             <div className="navigation__elements">
                 <h1>Welcome to Movie Wars</h1>
@@ -27,21 +28,50 @@ export const Header = () => {
                 <NavLink
                   to='/'
                   className="navigation__button"
-                  onClick={()=>handleClick(false)}
+                  onClick={()=>handleClick(0)}
                 >Main</NavLink>
                 <NavLink
                   to='/battle'
-                  className={showForm ?
+                  className={showForm === 1 ?
                     'navigation__button navigation__button--disabled' :
                     `navigation__button`}
-                  onClick={()=>handleClick(true)}>{
-                    (window.location.pathname === '/') ?
-                      'To Battle' :
+                  onClick={()=>handleClick(1)}>{
+                    (window.location.pathname === '/' || window.location.pathname === '/search') ?
+                      'Quick Search' :
                       showForm ?
-                        'Battle Params' :
-                        'Back to Battle Params'
+                        'Quick Search' :
+                        'Back to Quick Search'
+                }</NavLink>
+                <NavLink
+                  to='/search'
+                  className={showForm === 2?
+                    'navigation__button navigation__button--disabled' :
+                    `navigation__button`}
+                  onClick={()=>handleClick(2)}>{
+                  (window.location.pathname === '/' || window.location.pathname === '/battle') ?
+                    'New Search' :
+                    showForm ?
+                      'New Search' :
+                      'Back to New Search'
                 }</NavLink>
               </div>
             </div>
-        </div>)
+        </div>
+        <div className="code-links">
+          <div className="code-links-desc">
+          <p>Projects</p>
+          <p>Code</p>
+          </div>
+          <a
+            href='https://github.com/iwomipl/Movie-Wars-Back'
+            className="code-links-item"
+            target="_blank"
+          >Backend</a>
+          <a
+            href='https://github.com/iwomipl/Movie-Wars-Front'
+            className="code-links-item"
+            target="_blank"
+          >Frontend</a>
+        </div>
+    </div>)
 }

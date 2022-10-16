@@ -113,7 +113,7 @@ export const BattleComponent = () => {
     return <>{ !showWinner ?
         <div className="battleComponent">
             {showMessage && <MessageComponent/>}
-            <h4>You have chosen to battle {Math.ceil(numberOfBattles/2)} movies out of {additionalVariable.name} category. Choose which movie is better</h4>
+            <h4>You have chosen to battle {Math.ceil(numberOfBattles/2)} movies out of {additionalVariable.genre} category. Choose which movie is better</h4>
         <div>
             <form className='fightingMovies' onSubmit={handleSubmit}>
                 <MovieView

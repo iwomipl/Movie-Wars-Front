@@ -13,7 +13,7 @@ export const ShowWinnerMovie = (props: Props) => {
     const {additionalVariable} = useSelector((store: RootState) => store.battles);
 
     return <div className="lastMovie">
-        <h3 className="winner-h3">That's it, you have chosen best {additionalVariable.name} Movie for You.</h3>
+        <h3 className="winner-h3">That's it, you have chosen best {additionalVariable.genre} Movie for You.</h3>
         <h2 className="winner-h2">The winner is:</h2>
         <div className="movieInBattle good-shadow">
             <img src={props.poster} alt={props.origTitle} className="movieImg"/>

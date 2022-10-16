@@ -3,7 +3,25 @@
     margin: 1vh;
 }
 
-#mainButton{
+.mainButton{
     padding: 1vh;
+    margin-top: 1vh;
     vertical-align: middle;
+}
+.search-table{
+    display: flex;
+    justify-content: center;
+}
+.search-table-item{
+    margin: 2px;
+    padding: 1vh;
+    border: 1px solid var(--main-dark-color);
+    background: var(--main-color);
+    color: white;
+    font-weight: 500;
+    text-shadow: 0 0 5px var(--message-color);
+    border-radius: 5px;
+}
+.search-table h4{
+    margin-top: 1vh;
 }

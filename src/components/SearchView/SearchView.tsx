@@ -1,24 +1,20 @@
 import React, {FormEvent, useEffect} from 'react';
-import {MoviesListState, setGenresStats, setMoviesList} from "../../features/moviesList/moviesList.slice";
+import {MoviesListState, setMoviesList} from "../../features/moviesList/moviesList.slice";
 import {fetchToAPI} from "../../utils/fetchToAPI";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../store";
-import {BattleForm} from '../BattleForm/BattleForm';
 import {BattleComponent} from "../BattleComponent/BattleComponent";
 import {setCurrentListOfMovies, setShowForm} from "../../features/battle/battles.slice";
-import {MoviesInDataBase, GenresStatObject} from 'types';
+import {AdditionalSettingsToForm} from "../AdditionalSettingsToForm/AdditionalSettingsToForm";
+import {MoviesInDataBase} from 'types';
 
-import './battleView.css'
+import './SearchView.css'
 
-export const BattleView = () => {
+export const SearchView = () => {
     const dispatch = useDispatch();
     const {numberOfBattles, showForm} = useSelector((store: RootState) => store.battles);
     const {listOfMovies}: MoviesListState = useSelector((store: RootState) => store.moviesList);
     const {additionalVariable} = useSelector((store: RootState) => store.battles);
-
-    useEffect(() => {
-            (async () => dispatch(await setGenresStats(await fetchToAPI('GET') as GenresStatObject)))();
-    }, []);
 
     useEffect(() => {
         (async () => await dispatch(await setCurrentListOfMovies(listOfMovies as MoviesInDataBase[])))();
@@ -31,8 +27,8 @@ export const BattleView = () => {
               'POST',
               Math.ceil(numberOfBattles / 2),
               additionalVariable.genre,
-              1901,
-              Number(new Date().getFullYear()),
+              additionalVariable.startYear,
+              additionalVariable.endYear,
               additionalVariable.rating) as MoviesInDataBase[])))();
             dispatch(setShowForm(0));
         } else {
@@ -43,9 +39,8 @@ export const BattleView = () => {
     return <>
         {showForm ?
           <div className="mainBattleView">
-                <BattleForm
-                  submitFunction={handleSubmit}
-                />
+                <AdditionalSettingsToForm
+                  submitFunction={handleSubmit}/>
             </div> :
             <div className="mainBattleView">
                 <BattleComponent/>

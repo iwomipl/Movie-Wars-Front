@@ -44,3 +44,44 @@
     pointer-events: none;
     background-color: var(--main-disabled-color);
 }
+.code-links{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    max-width: 8vw;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+}
+.code-links:hover div{
+    display: none;
+}
+.code-links:hover a{
+    display: block;
+}
+.code-links-item{
+    display: none;
+    padding: 0.8vh;
+    margin: 0.8vh 2px;
+    background-color: var(--main-color);
+    border-radius: 5px;
+    font-weight: bolder;
+    text-decoration: none;
+    color: white;
+}
+.code-links-item:hover{
+    display:block;
+}
+.code-links-desc{
+    display: block;
+    padding: 1vh;
+    margin: 1vh 2px;
+    background-color: var(--main-color);
+    border-radius: 5px;
+    font-weight: bolder;
+    text-decoration: none;
+    color: white;
+}
+.code-links-desc:hover{
+    display: none;
+}

@@ -51,11 +51,11 @@
     border-radius: 5px;
 }
 .movieImg--left {
-    animation: movie-img-animation-left 15s infinite linear;
+    animation: movie-img-animation-left 10s infinite linear;
 }
 
 .movieImg--right {
-    animation: movie-img-animation-right 15s infinite linear;
+    animation: movie-img-animation-right 10s infinite linear;
 }
 
 #radio-movie {
@@ -182,19 +182,19 @@
     0% {
         transform: rotate(0);
     }
-    8.7% {
+    4% {
         transform: rotate3d(0, 1, 0, 90deg);
     }
-    15.3% {
+    8% {
         transform: rotate(0);
     }
     50% {
         transform: rotate(0);
     }
-    58.7% {
+    54% {
         transform: rotate3d(1, 0, 0, 90deg);
     }
-    65.3% {
+    58% {
         transform: rotate(0);
     }
     100%{
@@ -205,19 +205,19 @@
     0% {
         transform: rotate(0);
     }
-    8.7% {
+    4% {
         transform: rotate3d(1, 0, 0, 90deg);
     }
-    15.3% {
+    8% {
         transform: rotate(0);
     }
     50% {
         transform: rotate(0);
     }
-    58.7% {
+    54% {
         transform: rotate3d(0, 1, 0, 90deg);
     }
-    65.3% {
+    58% {
         transform: rotate(0);
     }
     100%{

@@ -8,6 +8,7 @@ import {CommonInput} from "../common/CommonInput";
 
 export const Genres = ()=>{
   const dispatch = useDispatch();
+  const {additionalVariable} = useSelector((store: RootState) => store.battles);
   const MoviesListState = useSelector((store: RootState) => store.moviesList);
   const {numberOfBattles} = useSelector((store: RootState) => store.battles);
 
@@ -15,9 +16,9 @@ export const Genres = ()=>{
     const chosenNumber = (MoviesListState.genresStats as GenresStatObject)[e.target.value];
 
    if(chosenNumber >= Math.ceil(numberOfBattles/2)) {
-     dispatch(setAdditionalVariable({name: e.target.value, number: chosenNumber}))
+     dispatch(setAdditionalVariable({...additionalVariable, genre: e.target.value, number: chosenNumber}));
    } else {
-     dispatch(setAdditionalVariable({name: e.target.value, number: chosenNumber}));
+     dispatch(setAdditionalVariable({...additionalVariable, genre: e.target.value, number: chosenNumber}));
      dispatch(setNumberOfBattles(8*2-1));
    }
   };
