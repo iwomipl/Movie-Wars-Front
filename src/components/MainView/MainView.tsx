@@ -3,36 +3,46 @@ import {NavLink} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {setShowForm} from "../../features/battle/battles.slice";
 
-
 import './mainView.css'
-
 
 export const MainView = () => {
     const dispatch = useDispatch();
 
-
     useEffect(()=>{
-        dispatch(setShowForm(false))
+        dispatch(setShowForm(0))
     },[])
-    const handleClick = (showFormChange: boolean)=>{
+
+    const handleClick = (showFormChange: 1|2)=>{
         dispatch(setShowForm(showFormChange))
     }
 
-
     return <>
         <h1>Hi there!</h1>
-        <p>This website is for people who like Movies, and are willing to play a little game to find out, which movie do they like the most.</p>
-        <h3>The mechanism in Movie Wars is simple.</h3>
-        <p>First choose genre of movies you want to compare.</p>
-        <p>Then how many movies you want to compare.</p>
+        <p>This website is for people who like Movies and are willing to play a little game to find out, which movie do they like the most.</p>
+        <h3>The mechanism in <strong>Movie Wars</strong> is quite simple.</h3>
+        <p>You can choose from two ways of searching: <strong>quick</strong> and <strong>advanced</strong>.</p>
+        <div className="search-table">
+        <div className="search-table-item">
+            <h4>Quick search</h4>
+            <p>First choose genre of movies you want to compare.</p>
+            <p>Then how many movies you want to compare.</p>
+        </div>
+        <div className="search-table-item">
+            <h4>Advanced search</h4>
+            <p>Choose from multiple options you want to choose.</p>
+            <p>Then how many movies you want to compare.</p>
+        </div>
+        </div>
         <p>The App will show you pairs of movies. Your job is to choose between them. Which one is better.</p>
         <p>You will be having almost two times more battles, than movies, so choose the number carefully.</p>
         <h4>Our goal is to choose the best one.</h4>
         <em>Remember, that you don't know all movies and the more movies you will choose from the greater the chance to not know specific movie.</em>
         <h3>Godspeed and have fun with movies!</h3>
-        <div id="mainButton">
-        <NavLink to='/battle' className="navigation__button" onClick={()=>handleClick(true)}>To Battle!</NavLink>
+        <div className="mainButton">
+            <NavLink to='/battle' className="navigation__button" onClick={()=>handleClick(1)}>Quick search Battle!</NavLink>
         </div>
-        <em id="bottom-em">The app is created mainly for computers. It might be working on phones, but looks much worse.</em>
+        <div className="mainButton">
+            <NavLink to='/search' className="navigation__button" onClick={()=>handleClick(2)}>Advanced search Battle!</NavLink>
+        </div>
     </>
 }

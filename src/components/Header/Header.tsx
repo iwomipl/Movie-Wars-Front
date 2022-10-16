@@ -20,6 +20,7 @@ export const Header = () => {
   }
 
     return (
+      <div>
         <div className="navigation">
             <div className="navigation__elements">
                 <h1>Welcome to Movie Wars</h1>
@@ -55,5 +56,22 @@ export const Header = () => {
                 }</NavLink>
               </div>
             </div>
-        </div>)
+        </div>
+        <div className="code-links">
+          <div className="code-links-desc">
+          <p>Projects</p>
+          <p>Code</p>
+          </div>
+          <a
+            href='https://github.com/iwomipl/Movie-Wars-Back'
+            className="code-links-item"
+            target="_blank"
+          >Backend</a>
+          <a
+            href='https://github.com/iwomipl/Movie-Wars-Front'
+            className="code-links-item"
+            target="_blank"
+          >Frontend</a>
+        </div>
+    </div>)
 }

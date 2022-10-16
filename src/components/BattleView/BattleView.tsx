@@ -21,7 +21,6 @@ export const BattleView = () => {
     }, []);
 
     useEffect(() => {
-
         (async () => await dispatch(await setCurrentListOfMovies(listOfMovies as MoviesInDataBase[])))();
     }, [listOfMovies]);
 
@@ -32,8 +31,8 @@ export const BattleView = () => {
               'POST',
               Math.ceil(numberOfBattles / 2),
               additionalVariable.genre,
-              additionalVariable.startYear,
-              additionalVariable.endYear,
+              1901,
+              Number(new Date().getFullYear()),
               additionalVariable.rating) as MoviesInDataBase[])))();
             dispatch(setShowForm(0));
         } else {

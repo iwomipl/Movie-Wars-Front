@@ -1,6 +1,7 @@
 {
   "name": "movie-wars-front",
   "version": "0.2.1",
+  "description": "Frontend of app comparing movies",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.3",

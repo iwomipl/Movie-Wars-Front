@@ -1,12 +1,12 @@
 import React, {FormEvent, useEffect} from 'react';
-import {MoviesListState, setGenresStats, setMoviesList} from "../../features/moviesList/moviesList.slice";
+import {MoviesListState, setMoviesList} from "../../features/moviesList/moviesList.slice";
 import {fetchToAPI} from "../../utils/fetchToAPI";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../store";
 import {BattleComponent} from "../BattleComponent/BattleComponent";
 import {setCurrentListOfMovies, setShowForm} from "../../features/battle/battles.slice";
 import {AdditionalSettingsToForm} from "../AdditionalSettingsToForm/AdditionalSettingsToForm";
-import {MoviesInDataBase, GenresStatObject} from 'types';
+import {MoviesInDataBase} from 'types';
 
 import './SearchView.css'
 
@@ -17,11 +17,6 @@ export const SearchView = () => {
     const {additionalVariable} = useSelector((store: RootState) => store.battles);
 
     useEffect(() => {
-            (async () => dispatch(await setGenresStats(await fetchToAPI('GET') as GenresStatObject)))();
-    }, []);
-
-    useEffect(() => {
-
         (async () => await dispatch(await setCurrentListOfMovies(listOfMovies as MoviesInDataBase[])))();
     }, [listOfMovies]);
 
