@@ -3,14 +3,14 @@ import {MoviesListState, setGenresStats, setMoviesList} from "../../features/mov
 import {fetchToAPI} from "../../utils/fetchToAPI";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../store";
-import {BattleForm} from '../BattleForm/BattleForm';
 import {BattleComponent} from "../BattleComponent/BattleComponent";
 import {setCurrentListOfMovies, setShowForm} from "../../features/battle/battles.slice";
+import {AdditionalSettingsToForm} from "../AdditionalSettingsToForm/AdditionalSettingsToForm";
 import {MoviesInDataBase, GenresStatObject} from 'types';
 
-import './battleView.css'
+import './SearchView.css'
 
-export const BattleView = () => {
+export const SearchView = () => {
     const dispatch = useDispatch();
     const {numberOfBattles, showForm} = useSelector((store: RootState) => store.battles);
     const {listOfMovies}: MoviesListState = useSelector((store: RootState) => store.moviesList);
@@ -44,9 +44,8 @@ export const BattleView = () => {
     return <>
         {showForm ?
           <div className="mainBattleView">
-                <BattleForm
-                  submitFunction={handleSubmit}
-                />
+                <AdditionalSettingsToForm
+                  submitFunction={handleSubmit}/>
             </div> :
             <div className="mainBattleView">
                 <BattleComponent/>
