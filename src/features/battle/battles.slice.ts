@@ -1,18 +1,22 @@
 import {createSlice} from "@reduxjs/toolkit";
 import { MoviesInDataBase } from "types";
 
+export interface AdditionalVariable {
+    genre: string;
+    rating?: string;
+    startYear?: number;
+    endYear?: number;
+    number?: number;
+}
 
 export interface BattlesState {
     numberOfBattles: number;
     currentListOfMovies: MoviesInDataBase[];
     futureListOfMovies: MoviesInDataBase[];
     currentBattle: MoviesInDataBase[];
-    additionalVariable: {
-        name: string;
-        number?: number;
-    };
+    additionalVariable: AdditionalVariable;
     roundNumber: number;
-    showForm: boolean;
+    showForm: 0|1|2;
 }
 
 const initialState: BattlesState = {
@@ -21,11 +25,14 @@ const initialState: BattlesState = {
     futureListOfMovies: [],
     currentBattle: [],
     additionalVariable: {
-        name: 'Various',
+        genre: 'Various',
+        rating: 'All',
+        startYear: 1901,
+        endYear: Number(new Date().getFullYear()),
         number: 256,
     },
     roundNumber: 1,
-    showForm: true,
+    showForm: 0,
 };
 
 interface SetNumberOfBattles {
@@ -40,17 +47,21 @@ interface AddMovieToFutureListOfMovies {
 interface SetCurrentBattle {
     payload: MoviesInDataBase[];
 }
+interface ResetAdditionalVariable {}
 interface SetAdditionalVariable {
     payload: {
-        name: string;
-        number: number;
-    };
+        genre: string;
+        rating?: string;
+        startYear?: number;
+        endYear?: number;
+        number?: number;
+    }
 }
 interface SetRoundNumber {
     payload: number;
 }
 interface SetShowForm {
-    payload: boolean;
+    payload: 0|1|2;
 }
 
 
@@ -76,8 +87,14 @@ export const battlesSlice = createSlice({
         setAdditionalVariable: (state, action: SetAdditionalVariable)=>{
             state.additionalVariable = action.payload;
         },
-        resetAdditionalVariable: (state, action: SetAdditionalVariable)=>{
-            state.additionalVariable = {name: 'Various', number: 256,};
+        resetAdditionalVariable: (state, action: ResetAdditionalVariable)=>{
+            state.additionalVariable = {
+                genre: 'Various',
+                rating: 'All',
+                startYear: 1901,
+                endYear: Number(new Date().getFullYear()),
+                number: 256,
+            };
         },
         setRoundNumber: (state, action: SetRoundNumber)=>{
             state.roundNumber = action.payload;

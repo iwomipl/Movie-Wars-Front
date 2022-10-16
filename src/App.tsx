@@ -8,6 +8,7 @@ import './App.css';
 import {BattleView} from './components/BattleView/BattleView';
 import {store} from "./store";
 import { NotFound } from './components/NotFound/NotFound';
+import {SearchView} from "./components/SearchView/SearchView";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
                 <Routes>
                     <Route path='/' element={<MainView/>}/>
                     <Route path='/battle' element={<BattleView/>}/>
+                    <Route path='/search' element={<SearchView/>}/>
                     <Route path="*" element={<NotFound/>}/>
                 </Routes>
             </Provider>
