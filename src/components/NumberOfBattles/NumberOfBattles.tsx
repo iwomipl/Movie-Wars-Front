@@ -24,7 +24,7 @@ export const NumberOfBattles = ()=>{
         name="battles"
         className="option-input radio"
         function={changeValue}
-        disabled={Number(additionalVariable.number) >7 && moviesNumber > Number(additionalVariable.number)}
+        disabled={(Number(additionalVariable.number) >7 && moviesNumber > Number(additionalVariable.number)) || 8 > Number(additionalVariable.number)}
       /><br/>
     </div>)}
   </div>
