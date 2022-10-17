@@ -33,7 +33,6 @@ export const BattleComponent = () => {
     /**---- Show message on start of each battle ----*/
     const [showMessage, setShowMessage] = useState(false);
 
-
     useEffect(() => {
         dispatch(resetFutureListOfMovies());
         dispatch(setRoundNumber(1));

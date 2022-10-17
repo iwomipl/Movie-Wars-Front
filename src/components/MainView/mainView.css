@@ -18,10 +18,17 @@
     border: 1px solid var(--main-dark-color);
     background: var(--main-color);
     color: white;
+    text-decoration: none;
     font-weight: 500;
     text-shadow: 0 0 5px var(--message-color);
     border-radius: 5px;
 }
+.search-table-item:hover{
+    box-shadow: 0 0 10px #282c34;
+    border: 1px solid var(--main-hoover-color);
+    background: var(--main-hoover-color);
+}
+
 .search-table h4{
     margin-top: 1vh;
 }
