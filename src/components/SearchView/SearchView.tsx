@@ -1,12 +1,12 @@
-import React, {FormEvent, useEffect} from 'react';
-import {MoviesListState, setMoviesList} from "../../features/moviesList/moviesList.slice";
-import {fetchToAPI} from "../../utils/fetchToAPI";
+import React, {FormEvent, useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../../store";
-import {BattleComponent} from "../BattleComponent/BattleComponent";
+import {MoviesListState, setMoviesList} from "../../features/moviesList/moviesList.slice";
 import {setCurrentListOfMovies, setShowForm} from "../../features/battle/battles.slice";
-import {AdditionalSettingsToForm} from "../AdditionalSettingsToForm/AdditionalSettingsToForm";
 import {MoviesInDataBase} from 'types';
+import {AdditionalSettingsToForm} from "../AdditionalSettingsToForm/AdditionalSettingsToForm";
+import {BattleComponent} from "../BattleComponent/BattleComponent";
+import {fetchToAPI} from "../../utils/fetchToAPI";
 
 import './SearchView.css'
 
@@ -15,9 +15,13 @@ export const SearchView = () => {
     const {numberOfBattles, showForm} = useSelector((store: RootState) => store.battles);
     const {listOfMovies}: MoviesListState = useSelector((store: RootState) => store.moviesList);
     const {additionalVariable} = useSelector((store: RootState) => store.battles);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        setLoading(true);
+        dispatch(setShowForm(2));
         (async () => await dispatch(await setCurrentListOfMovies(listOfMovies as MoviesInDataBase[])))();
+        setLoading(false);
     }, [listOfMovies]);
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement | HTMLInputElement>) => {
@@ -43,7 +47,7 @@ export const SearchView = () => {
                   submitFunction={handleSubmit}/>
             </div> :
             <div className="mainBattleView">
-                <BattleComponent/>
+                {loading ? <p>Loading...</p>:<BattleComponent/>}
             </div>
         }
     </>

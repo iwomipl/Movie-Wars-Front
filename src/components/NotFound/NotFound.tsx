@@ -5,6 +5,6 @@ export const NotFound =()=>{
 
     return <div>
         <h1>404 Page not found</h1>
-        <Link to="/main">Go Home</Link>
+        <Link to="/">Go Home</Link>
     </div>
 }
